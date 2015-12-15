@@ -1,0 +1,37 @@
+{
+  "name": "kindredapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "browserify": "browserify -t [ babelify --presets [ react ] ] src/index.js -o public/js/application.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.4",
+    "sequelize-cli": "^2.2.1"
+  },
+  "dependencies": {
+    "boom": "^3.0.0",
+    "hapi": "^11.1.2",
+    "history": "^1.16.0",
+    "immutable": "^3.7.5",
+    "inert": "^3.2.0",
+    "joi": "^7.0.1",
+    "jquery": "^2.1.4",
+    "pg": "^4.4.3",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-redux": "^4.0.1",
+    "react-router": "^1.0.2",
+    "redux": "^3.0.5",
+    "redux-simple-router": "^1.0.0",
+    "sequelize": "^3.14.2"
+  }
+}
