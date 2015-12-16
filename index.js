@@ -4,7 +4,7 @@ var Boom      = require('boom');
 
 var PORT      = process.env.PORT || 8000;
 var server    = new Hapi.Server();
-var db        = require('./lib/models/index.js')
+var db        = require('./models/index.js')
 
 var plugins = [
   require('inert'),
@@ -25,7 +25,7 @@ server.register(plugins, function() {
       }
     }
   });
-  
+
   // Start your Server
   server.start(function () {
     console.log('Kindred is running on port:', PORT);
