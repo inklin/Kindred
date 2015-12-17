@@ -16,7 +16,7 @@ server.register(plugins, function() {
   // Serve up all static content in public folder
   server.route({
     method: 'GET',
-    path: '/{p*}',
+    path: '/{params*}',
     handler: {
       directory: {
         path: './public',
@@ -25,7 +25,6 @@ server.register(plugins, function() {
       }
     }
   });
-
   // Start your Server
   server.start(function () {
     console.log('Kindred is running on port:', PORT);

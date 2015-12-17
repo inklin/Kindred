@@ -4,13 +4,18 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
-    './src/index.js'
+    './src/index.jsx'
   ],
   module: {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel'
+      loader: 'react-hot!babel',
+    },
+    {
+      test:/\.js$/,
+      loader:"eslint-loader",
+      exclude:"/node_modules/"
     }]
   },
   resolve: {
@@ -21,6 +26,7 @@ module.exports = {
     publicPath: '/',
     filename: 'application.js'
   },
+  devtool: 'eval',
   devServer: {
     contentBase: './public',
     hot: true,
