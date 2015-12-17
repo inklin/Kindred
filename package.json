@@ -24,7 +24,11 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "babel-eslint": "^4.1.6",
     "boom": "^3.0.0",
+    "eslint": "^1.10.3",
+    "eslint-loader": "^1.1.1",
+    "eslint-plugin-react": "^3.11.3",
     "hapi": "^11.1.2",
     "history": "^1.16.0",
     "immutable": "^3.7.5",
@@ -45,5 +49,19 @@
       "es2015",
       "react"
     ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "rules": {
+      "strict": 0,
+      "react/react-in-jsx-scope": 1
+    },
+    "extends": "eslint:recommended",
+    "plugins": [
+      "react"
+    ],
+    "ecmaFeatures": {
+      "jsx": true
+    }
   }
 }
