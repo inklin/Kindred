@@ -5,14 +5,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       validate: {
         isInt: true,
-        notNull: true
       }
     },
     title: {
       type: DataTypes.STRING,
       validate: {
         notEmpty: true,
-        notNull: true
         // add length
       }
     },
@@ -20,7 +18,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       validate: {
         notEmpty: true,
-        notNull: true
         // add length
       }
     },
@@ -28,14 +25,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       validate: {
         isUrl: true,
-        notNull: true
       }
     },
     updateId: {
       type: DataTypes.INTEGER,
       validate: {
         isInt: true,
-        notNull: true
       }
     }
   }, {

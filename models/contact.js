@@ -5,14 +5,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       validate: {
         isInt: true,
-        notNull: true
       }
     },
     PersonId: {
       type: DataTypes.INTEGER,
       validate: {
         isInt: true,
-        notNull: true
       }
     }
   }, {

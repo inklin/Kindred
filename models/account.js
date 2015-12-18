@@ -4,7 +4,6 @@ module.exports = function(sequelize, DataTypes) {
     username: {
       type: DataTypes.STRING,
       validate: {
-        notNull: true,
         notEmpty: true
         //add unique
       }
@@ -12,7 +11,6 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       validate: {
-        notNull: true,
         notEmpty: true
       }
     }

@@ -5,21 +5,18 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       validate: {
         isInt: true,
-        notNull: true
       }
     },
     PersonId: {
       type: DataTypes.INTEGER,
       validate: {
         isInt: true,
-        notNull: true
       }
     },
     sendAs: {
       type: DataTypes.STRING,
       valdate: {
         isIn: [['full', 'snippet', 'none']],
-        notNull: true
       }
     }
   }, {
