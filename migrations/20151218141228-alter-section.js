@@ -52,28 +52,28 @@ module.exports = {
         'Sections',
         'title',
         {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING
         }
       ),
       queryInterface.changeColumn(
         'Sections',
         'AccountId',
         {
-          type: Sequelize.INTEGER,
+          type: Sequelize.INTEGER
         }
       ),
       queryInterface.changeColumn(
         'Sections',
         'body',
         {
-          type: Sequelize.TEXT,
+          type: Sequelize.TEXT
         }
       ),
       queryInterface.changeColumn(
         'Sections',
         'imageUrl',
         {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING
         }
       ),
       queryInterface.removeColumn(

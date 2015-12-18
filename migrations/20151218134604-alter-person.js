@@ -18,7 +18,7 @@ module.exports = {
       'People',
       'email',
       {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING
       }
     )
   }

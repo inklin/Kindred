@@ -40,21 +40,21 @@ module.exports = {
         'Comments',
         'AccountId',
         {
-          type: Sequelize.INTEGER,
+          type: Sequelize.INTEGER
         }
       ),
       queryInterface.changeColumn(
         'Comments',
         'content',
         {
-          type: Sequelize.TEXT,
+          type: Sequelize.TEXT
         }
       ),
       queryInterface.addColumn(
         'Comments',
         'UpdateId',
         {
-          type: Sequelize.INTEGER,
+          type: Sequelize.INTEGER
         }
       ),
       queryInterface.removeColumn(

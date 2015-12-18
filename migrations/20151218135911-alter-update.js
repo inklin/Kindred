@@ -17,7 +17,7 @@ module.exports = {
       'Updates',
       'AccountId',
       {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       }
     )
   }

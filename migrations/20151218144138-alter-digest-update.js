@@ -4,23 +4,23 @@ module.exports = {
   up: function (queryInterface, Sequelize) {
     return [
       queryInterface.changeColumn(
-        'DigestViewSettings',
-        'AccountId',
+        'DigestUpdates',
+        'UpdateId',
         {
           type: Sequelize.INTEGER,
           allowNull: false
         }
       ),
       queryInterface.changeColumn(
-        'DigestViewSettings',
-        'PersonId',
+        'DigestUpdates',
+        'DigestId',
         {
           type: Sequelize.INTEGER,
           allowNull: false
         }
       ),
       queryInterface.changeColumn(
-        'DigestViewSettings',
+        'DigestUpdates',
         'sendAs',
         {
           type: Sequelize.STRING,
@@ -33,21 +33,21 @@ module.exports = {
   down: function (queryInterface, Sequelize) {
     return [
       queryInterface.changeColumn(
-        'DigestViewSettings',
-        'AccountId',
+        'DigestUpdates',
+        'UpdateId',
         {
           type: Sequelize.INTEGER
         }
       ),
       queryInterface.changeColumn(
-        'DigestViewSettings',
-        'PersonId',
+        'DigestUpdates',
+        'DigestId',
         {
           type: Sequelize.INTEGER
         }
       ),
       queryInterface.changeColumn(
-        'DigestViewSettings',
+        'DigestUpdates',
         'sendAs',
         {
           type: Sequelize.STRING
