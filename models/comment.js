@@ -5,21 +5,18 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       validate: {
         isInt: true,
-        notNull: true
       }
     },
     content: {
       type: DataTypes.TEXT,
       validate: {
         notEmpty: true,
-        notNull: true
       }
     },
     UpdateId: {
       type: DataTypes.INTEGER,
       validate: {
         isInt: true,
-        notNull: true
       }
     }
   }, {
