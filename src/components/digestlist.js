@@ -5,8 +5,7 @@ export default class DigestList extends React.Component {
   render() {
     return (
       <div>
-        <h1 onClick={this.test.bind(this)}>DigestList</h1>
-        <input ref='test'/>
+        <h1>DigestList</h1>
       </div>
     )
   }
