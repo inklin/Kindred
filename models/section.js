@@ -34,10 +34,13 @@ module.exports = function(sequelize, DataTypes) {
     },
     updateId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       validate: {
         isInt: true,
       }
+    },
+    draft: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     }
   }, {
     classMethods: {
