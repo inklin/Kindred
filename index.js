@@ -6,6 +6,8 @@ var PORT      = process.env.PORT || 8000;
 var server    = new Hapi.Server();
 var db        = require('./models/index.js')
 
+var routes    = require('./lib/routes');
+
 var plugins = [
   require('inert'),
 ];
@@ -13,18 +15,8 @@ var plugins = [
 server.register(plugins, function() {
   server.connection({ port: PORT });
 
-  // Serve up all static content in public folder
-  server.route({
-    method: 'GET',
-    path: '/{p*}',
-    handler: {
-      directory: {
-        path: './public',
-        listing: false,
-        index: true,
-      }
-    }
-  });
+  // Set up routes
+  server.route(routes);
 
   // Start your Server
   server.start(function () {
