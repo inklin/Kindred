@@ -3,23 +3,23 @@ module.exports = function(sequelize, DataTypes) {
   var Comment = sequelize.define('Comment', {
     AccountId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate: {
-        isInt: true,
-        notNull: true
+        isInt: true
       }
     },
     content: {
       type: DataTypes.TEXT,
+      allowNull: false,
       validate: {
-        notEmpty: true,
-        notNull: true
+        notEmpty: true
       }
     },
     UpdateId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate: {
-        isInt: true,
-        notNull: true
+        isInt: true
       }
     }
   }, {

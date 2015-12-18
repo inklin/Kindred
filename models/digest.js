@@ -3,9 +3,9 @@ module.exports = function(sequelize, DataTypes) {
   var Digest = sequelize.define('Digest', {
     PersonId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate: {
         isInt: true,
-        notNull: true
       }
     },
     readAt: {

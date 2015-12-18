@@ -3,23 +3,23 @@ module.exports = function(sequelize, DataTypes) {
   var DigestViewSetting = sequelize.define('DigestViewSetting', {
     AccountId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate: {
         isInt: true,
-        notNull: true
       }
     },
     PersonId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate: {
         isInt: true,
-        notNull: true
       }
     },
     sendAs: {
       type: DataTypes.STRING,
+      allowNull: false,
       valdate: {
         isIn: [['full', 'snippet', 'none']],
-        notNull: true
       }
     }
   }, {
