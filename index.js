@@ -65,17 +65,6 @@ server.register(plugins, function() {
 
   server.route({
     method: 'GET',
-    path: '/',
-    config: {
-      auth: 'session',
-      handler: function(request, reply){
-        reply.file('./public/index.html')
-      }
-    }
-  });
-
-  server.route({
-    method: 'GET',
     path: '/application.js',
     handler: function(request, reply){
       reply.file('./public/application.js')
@@ -154,6 +143,18 @@ server.register(plugins, function() {
     }
     
   });
+
+  server.route({
+    method: 'GET',
+    path: '/{all*}',
+    config: {
+      auth: 'session',
+      handler: function(request, reply){
+        reply.file('./public/index.html')
+      }
+    }
+  });
+
 
   // Start your Server
   server.start(function () {

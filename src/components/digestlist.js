@@ -1,9 +1,13 @@
 import React from 'react'
 
 export default class DigestList extends React.Component {
+
   render() {
     return (
-      <h1>DigestList</h1>
+      <div>
+        <h1 onClick={this.test.bind(this)}>DigestList</h1>
+        <input ref='test'/>
+      </div>
     )
   }
 }
