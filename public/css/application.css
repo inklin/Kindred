@@ -1,3 +1,28 @@
 body {
   background: salmon;
 }
+
+.demo-card-square.mdl-card {
+  width: 300px;
+  height: 400px;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background-color: #46B6AC;
+}
+
+.mdl-layout__header{
+  background-color: transparent;
+}
+
+.mdl-layout__header .mdl-layout__drawer-button {
+  color: black;
+}
+
+.mdl-button {
+  color: black;
+}
+
+.mdl-textfield__input {
+  color: black;
+}
