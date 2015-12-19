@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var Update = sequelize.define('Update', {
     AccountId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate: {
         isInt: true,
       }
