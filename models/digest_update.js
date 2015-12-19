@@ -3,23 +3,23 @@ module.exports = function(sequelize, DataTypes) {
   var DigestUpdate = sequelize.define('DigestUpdate', {
     UpdateId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate: {
         isInt: true,
-        notNull: true
       }
     },
     DigestId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate: {
         isInt: true,
-        notNull: true
       }
     },
     sendAs: {
       type: DataTypes.STRING,
+      allowNull: false,
       valdate: {
         isIn: [['full', 'snippet', 'none']],
-        notNull: true
       }
     }
   }, {

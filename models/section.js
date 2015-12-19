@@ -3,6 +3,7 @@ module.exports = function(sequelize, DataTypes) {
   var Section = sequelize.define('Section', {
     AccountId: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate: {
         isInt: true,
         notNull: true
@@ -10,33 +11,36 @@ module.exports = function(sequelize, DataTypes) {
     },
     title: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         notEmpty: true,
-        notNull: true
         // add length
       }
     },
     body: {
       type: DataTypes.TEXT,
+      allowNull: false,
       validate: {
         notEmpty: true,
-        notNull: true
         // add length
       }
     },
     imageUrl: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         isUrl: true,
-        notNull: true
       }
     },
     updateId: {
       type: DataTypes.INTEGER,
       validate: {
         isInt: true,
-        notNull: true
       }
+    },
+    draft: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     }
   }, {
     classMethods: {
