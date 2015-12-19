@@ -20,7 +20,7 @@ syncReduxAndRouter(history, store)
 ReactDOM.render(
   <Provider store={store} >
     <Router history={history} >
-      <Route path='/' component={ Navbar} >
+      <Route path='/' component={ Navbar } >
         <IndexRoute                   component={ DigestList } />
         <Route path='editor'          component={ Editor } />
         <Route path='digests/:id'     component={ Digest } />
