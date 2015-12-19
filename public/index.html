@@ -1,16 +1,93 @@
-<!doctype html>
-<html>
-   <head>
-       <meta charset="utf-8">
-       <meta name="description" content="">
-       <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+      <link rel="stylesheet" href="/css/application.css">
+      <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
 
-       <title>Kindred</title>
-
-       <link rel="stylesheet" href="/css/application.css">
-   </head>
-   <body>
-      <div id="app"></div>
-      <script src="application.js"></script>
-   </body>
+    <body>
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+          <div class="mdl-layout__header-row">
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                        mdl-textfield--floating-label mdl-textfield--align-right">
+              <label class="mdl-button mdl-js-button mdl-button--icon"
+                     for="fixed-header-drawer-exp">
+                <i class="material-icons">search</i>
+              </label>
+              <div class="mdl-textfield__expandable-holder">
+                <input class="mdl-textfield__input" type="text" name="sample"
+                       id="fixed-header-drawer-exp">
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- SIDE BAR  -->
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Kindred</span>
+        <img src="https://s3.amazonaws.com/uifaces/faces/twitter/jadlimcaco/128.jpg" height="240px" />
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+          <a class="mdl-navigation__link" href="">Link</a>
+        </nav>
+      </div>
+      <!-- MAIN CONTENT -->
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <div class="mdl-grid">
+            <!-- Square card -->
+            <div class="mdl-cell mdl-cell--4-col">
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand">
+                  <h2 class="mdl-card__title-text">
+                    18<br/>
+                    December<br/>
+                    2015
+                  </h2>
+                </div>
+              </div>
+              <!-- end of card -->
+            </div>
+            <!-- Square card -->
+            <div class="mdl-cell mdl-cell--4-col">
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand">
+                  <h2 class="mdl-card__title-text">
+                    11<br/>
+                    December<br/>
+                    2015
+                  </h2>
+                </div>
+              </div>
+              <!-- end of card -->
+            </div>
+            <!-- Square card -->
+            <div class="mdl-cell mdl-cell--4-col">
+              <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand">
+                  <h2 class="mdl-card__title-text">
+                    04<br/>
+                    December<br/>
+                    2015
+                  </h2>
+                </div>
+              </div>
+              <!-- end of card -->
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
 </html>
