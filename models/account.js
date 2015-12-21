@@ -15,6 +15,9 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         notEmpty: true
       }
+    },
+    avatarUrl: {
+      type: DataTypes.STRING
     }
   }, {
     classMethods: {
