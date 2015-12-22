@@ -7,5 +7,12 @@ module.exports = {
       'avatarUrl',
       Sequelize.STRING
     )
+  },
+
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.removeColumn(
+      'Accounts',
+      'avatarUrl'
+    )
   }
 };
