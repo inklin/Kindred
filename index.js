@@ -23,7 +23,7 @@ server.register(plugins, function() {
     isSecure: 'false',
     redirectTo: '/login',
     clearInvalid: true,
-    validateFunc: function(request, session, callback){
+    validateFunc: function(req, session, callback){
         db.Account.findById(session.id).then(function(account){
           if ( account ) {
             callback(null, true)
@@ -39,7 +39,7 @@ server.register(plugins, function() {
   server.route({
     method: 'GET',
     path: '/application.js',
-    handler: function(request, reply){
+    handler: function(req, reply){
       reply.file('./public/application.js')
     }
   });
@@ -47,7 +47,7 @@ server.register(plugins, function() {
   server.route({
     method: 'GET',
     path: '/css/application.css',
-    handler: function(request, reply){
+    handler: function(req, reply){
       reply.file('./public/css/application.css')
     }
   });
