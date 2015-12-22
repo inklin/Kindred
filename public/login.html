@@ -15,16 +15,15 @@
              <div class="mdl-cell mdl-cell--4-col"></div>
                <div class="mdl-cell mdl-cell--4-col mdl-typography--text-center">
                  <h1>Sign In</h1>
-                  <form action="#">
+                  <form action="/accounts" method="POST">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="text" id="username">
+                      <input class="mdl-textfield__input" type="text" id="username" name="username">
                       <label class="mdl-textfield__label" for="username">Username</label>
                     </div><br/>
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                      <input class="mdl-textfield__input" type="password" id="password">
+                      <input class="mdl-textfield__input" type="password" id="password" name="password">
                       <label class="mdl-textfield__label" for="password">Password</label>
-                    </div><br/>
-                  </br>
+                    </div><br/><br/>
                     <button class="mdl-button mdl-js-button mdl-button--raised">Submit</button>
                   </form>
                 </div>
