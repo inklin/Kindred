@@ -6,14 +6,10 @@
 .mdl-card-digest > .mdl-card__title {
   color: #fff;
   height: 250px;
-  background:
-    url('https://upload.wikimedia.org/wikipedia/commons/2/2b/Vancouver_-_Gastown_01.jpg') center / cover no-repeat #46B6AC;
 }
 
 .mdl-card-dash > .mdl-card__title {
   color: #fff;
-  background:
-    url('http://tfirdaus.github.io/mdl/images/laptop.jpg') center / cover no-repeat #46B6AC;
 }
 
 .mdl-layout__center {
