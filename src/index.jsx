@@ -6,7 +6,7 @@ import { Router, Route, IndexRoute }        from 'react-router'
 import { createHistory }                    from 'history'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
 import { Navbar, DigestList, Editor, Digest,
-         Section, Update }                  from './components/index.js'
+         SectionContainer, Update }         from './components/index.js'
 
 const reducer = combineReducers ({
   routing: routeReducer
@@ -24,7 +24,7 @@ ReactDOM.render(
         <IndexRoute                   component={ DigestList } />
         <Route path='editor'          component={ Editor } />
         <Route path='digests/:id'     component={ Digest } />
-        <Route path='sections/:id'    component={ Section } />
+        <Route path='sections/:id'    component={ SectionContainer } />
         <Route path='updates'         component={ Update } />
       </ Route>
     </ Router>
