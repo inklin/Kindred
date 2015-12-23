@@ -24,11 +24,11 @@ server.register(plugins, function() {
     redirectTo: '/login',
     clearInvalid: true,
     validateFunc: function(req, session, callback){
-        db.Account.findById(session.id).then(function(account){
+        db.Account.findById(session.account.id).then(function(account){
           if ( account ) {
-            callback(null, true)
+            callback(null, true);
           } else {
-            callback(null, false)
+            callback(null, false);
           }
         }, callback)
       }
