@@ -24,7 +24,7 @@ module.exports = {
   output: {
     path: __dirname + '/public',
     publicPath: '/',
-    filename: 'application.js'
+    filename: 'js/application.js'
   },
   devtool: 'eval',
   devServer: {

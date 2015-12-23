@@ -36,61 +36,6 @@ server.register(plugins, function() {
   // Set up routes
   server.route(routes);
 
-  server.route({
-    method: 'GET',
-    path: '/application.js',
-    config: {
-      auth: false,
-      handler: function(req, reply){
-        reply.file('./public/application.js')
-      }
-    }
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/js/material.js',
-    config: {
-      auth: false,
-      handler: function(req, reply){
-        reply.file('./public/js/material.js')
-      }
-    }
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/css/styles.css',
-    config: {
-      auth: false,
-      handler: function(req, reply){
-        reply.file('./public/css/styles.css')
-      }
-    }
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/css/material.css',
-    config: {
-      auth: false,
-      handler: function(req, reply){
-        reply.file('./public/css/material.css')
-      }
-    }
-  });
-
-  server.route({
-    method: 'GET',
-    path: '/favicon.ico',
-    config: {
-      auth: false,
-      handler: function(req, reply){
-        reply()
-      }
-    }
-  });
-
   // Start your Server
   server.start(function () {
     console.log('Kindred is running on port:', PORT);
