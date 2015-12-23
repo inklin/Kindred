@@ -1,9 +1,15 @@
 import React from 'react'
+import Section from './digest/section'
 
 export default class Digest extends React.Component {
   render() {
     return (
-      <h1>Digest #{this.props.params.id}</h1>
+      <div class="mdl-grid">
+        <Section/>
+        <Section/>
+        <Section/>
+        <Section/>
+      </div>
     )
   }
 }

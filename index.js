@@ -46,9 +46,25 @@ server.register(plugins, function() {
 
   server.route({
     method: 'GET',
-    path: '/css/application.css',
+    path: '/js/material.js',
     handler: function(req, reply){
-      reply.file('./public/css/application.css')
+      reply.file('./public/js/material.js')
+    }
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/css/styles.css',
+    handler: function(req, reply){
+      reply.file('./public/css/styles.css')
+    }
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/css/material.css',
+    handler: function(req, reply){
+      reply.file('./public/css/material.css')
     }
   });
 
