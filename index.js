@@ -17,7 +17,7 @@ var plugins = [
 server.connection({ port: PORT });
 
 server.register(plugins, function() {
-  
+
   server.auth.strategy('session', 'cookie', true, {
     password: 'ChangeThis',
     isSecure: 'false',
@@ -26,7 +26,7 @@ server.register(plugins, function() {
     validateFunc: function(req, session, callback){
         db.Account.findById(session.id).then(function(account){
           if ( account ) {
-            req.currentUser = account;            
+            req.currentUser = account;
             callback(null, true);
           } else {
             callback(null, false);
