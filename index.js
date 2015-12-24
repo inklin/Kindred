@@ -26,9 +26,10 @@ server.register(plugins, function() {
     validateFunc: function(req, session, callback){
         db.Account.findById(session.id).then(function(account){
           if ( account ) {
-            callback(null, true)
+            req.currentUser = account;            
+            callback(null, true);
           } else {
-            callback(null, false)
+            callback(null, false);
           }
         }, callback)
       }
