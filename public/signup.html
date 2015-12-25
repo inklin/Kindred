@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+      <link rel="stylesheet" href="css/app.css">
+      <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+      <div class="mdl-layout mdl-js-layout">
+         <main class="mdl-layout__content">
+           <div class="mdl-grid">
+             <div class="mdl-cell mdl-cell--4-col"></div>
+               <div class="mdl-cell mdl-cell--4-col mdl-typography--text-center">
+                 <h1>Sign Up</h1>
+                  <form action="/api/accounts" method="POST">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="firstName" name="firstName">
+                      <label class="mdl-textfield__label" for="firstName">First Name</label>
+                    </div><br/>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="lastName" name="lastName">
+                      <label class="mdl-textfield__label" for="lastName">Last Name</label>
+                    </div><br/>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="avatarUrl" name="avatarUrl">
+                      <label class="mdl-textfield__label" for="avatarUrl">Avatar URL</label>
+                    </div><br/>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="email" name="email">
+                      <label class="mdl-textfield__label" for="email">Email Address</label>
+                    </div><br/>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="text" id="username" name="username">
+                      <label class="mdl-textfield__label" for="username">Username</label>
+                    </div><br/>
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                      <input class="mdl-textfield__input" type="password" id="password" name="password">
+                      <label class="mdl-textfield__label" for="password">Password</label>
+                    </div><br/><br/>
+
+                    <button class="mdl-button mdl-js-button mdl-button--raised">Submit</button>
+                  </form>
+                </div>
+              <div class="mdl-cell mdl-cell--4-col"></div>
+          </div>
+        </div>
+      </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
