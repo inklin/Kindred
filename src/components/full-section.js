@@ -5,7 +5,7 @@ export default class FullSection extends React.Component {
 
   render() {
     return (
-      <Card className="mdl-card-digest mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-shadow--2dp">
+      <Card className="mdl-card-digest mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet">
         <CardTitle 
           style={{ background: `url('${this.props.imageUrl}') center / cover no-repeat #46B6AC` }}>
           {this.props.title}
