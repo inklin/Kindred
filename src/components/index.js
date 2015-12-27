@@ -1,4 +1,3 @@
-// export * from './navbar.js'
 import Navbar from './navbar.js'
 import DigestList from './digest-list.js'
 import Editor from './editor.js'
