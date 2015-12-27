@@ -20,11 +20,6 @@ export default class DigestList extends React.Component {
         publishedAt='01 January 2016'
         imageUrl='http://i.imgur.com/NPsCCKZ.jpg'
       />
-
-      <DigestCard 
-        publishedAt='01 January 2016'
-        imageUrl='http://i.imgur.com/UMSYaaI.jpg'
-      />
     </div>
     )
   }
