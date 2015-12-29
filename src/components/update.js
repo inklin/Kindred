@@ -14,6 +14,11 @@ export default class Update extends React.Component {
         publishedAt='25 December 2015'
         imageUrl='http://i.imgur.com/gO3vYga.jpg'
       />
+      
+      <DigestCard 
+        publishedAt='25 December 2015'
+        imageUrl='http://i.imgur.com/TAf5zra.jpg'
+      />
       </div>
     )
   }

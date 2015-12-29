@@ -7,6 +7,7 @@ import { createHistory }                    from 'history'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
 import { Navbar, DigestList, Editor, Digest,
          SectionContainer, Update }         from './components/index.js'
+import { DigestReducer }                    from './reducers/index.js'
 
 const reducer = combineReducers ({
   routing: routeReducer
