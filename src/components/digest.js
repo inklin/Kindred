@@ -5,36 +5,37 @@ import { connect } from 'react-redux'
 class Digest extends React.Component {
 
   render() {
+    let currentDigest = this.props.digests.get(this.props.params.id)
+    let sections = []
+    
+    currentDigest.updates.forEach ((updateID) => {
+      this.props.updates.get(updateID).sections.forEach ((sectionId) => {
+        let section = this.props.sections.get(sectionId)
+        sections.push( 
+          <Section 
+            id={section.id}
+            key={section.id}
+            title={section.title}
+            body={section.body}
+            imageUrl={section.imageUrl}
+          />)
+      })
+    })
+
     return (
       <div className="mdl-grid">
-        <Section
-          id='1'
-          imageUrl='https://upload.wikimedia.org/wikipedia/commons/2/2b/Vancouver_-_Gastown_01.jpg'
-          title='Section Title'
-          body='Curabitur posuere lacinia tortor non facilisis. Praesent varius, mi ut suscipit molestie, tellus risus cursus libero, in tincidunt nisl dolor ac mauris. Praesent molestie convallis tortor, mollis tristique arcu fermentum interdum. Phasellus eleifend fringilla ullamcorper. Donec tristique, dui at blandit pretium, ex sem egestas dolor, vel fermentum magna dui at ligula. Nam erat neque, maximus et nibh eu, vehicula vestibulum lectus. Aenean non nunc sed enim pellentesque interdum. In venenatis elit nulla. Donec vulputate purus vel tortor feugiat, eu finibus odio tempus. Aliquam feugiat lacus at dolor aliquet congue.'
-        />
-        <Section
-          id='2' 
-          imageUrl='http://i.imgur.com/TAf5zra.jpg'
-          title='Section Title'
-          body='Curabitur posuere lacinia tortor non facilisis. Praesent varius, mi ut suscipit molestie, tellus risus cursus libero, in tincidunt nisl dolor ac mauris. Praesent molestie convallis tortor, mollis tristique arcu fermentum interdum. Phasellus eleifend fringilla ullamcorper. Donec tristique, dui at blandit pretium, ex sem egestas dolor, vel fermentum magna dui at ligula. Nam erat neque, maximus et nibh eu, vehicula vestibulum lectus. Aenean non nunc sed enim pellentesque interdum. In venenatis elit nulla. Donec vulputate purus vel tortor feugiat, eu finibus odio tempus. Aliquam feugiat lacus at dolor aliquet congue.'
-        />
-        <Section
-          id='3'
-          imageUrl='http://i.imgur.com/UMSYaaI.jpg'
-          title='Section Title'
-          body='Curabitur posuere lacinia tortor non facilisis. Praesent varius, mi ut suscipit molestie, tellus risus cursus libero, in tincidunt nisl dolor ac mauris. Praesent molestie convallis tortor, mollis tristique arcu fermentum interdum. Phasellus eleifend fringilla ullamcorper. Donec tristique, dui at blandit pretium, ex sem egestas dolor, vel fermentum magna dui at ligula. Nam erat neque, maximus et nibh eu, vehicula vestibulum lectus. Aenean non nunc sed enim pellentesque interdum. In venenatis elit nulla. Donec vulputate purus vel tortor feugiat, eu finibus odio tempus. Aliquam feugiat lacus at dolor aliquet congue.'
-        />
-        <Section
-          id='3'
-          imageUrl='http://i.imgur.com/gO3vYga.jpg'
-          title='Section Title'
-          body='Curabitur posuere lacinia tortor non facilisis. Praesent varius, mi ut suscipit molestie, tellus risus cursus libero, in tincidunt nisl dolor ac mauris. Praesent molestie convallis tortor, mollis tristique arcu fermentum interdum. Phasellus eleifend fringilla ullamcorper. Donec tristique, dui at blandit pretium, ex sem egestas dolor, vel fermentum magna dui at ligula. Nam erat neque, maximus et nibh eu, vehicula vestibulum lectus. Aenean non nunc sed enim pellentesque interdum. In venenatis elit nulla. Donec vulputate purus vel tortor feugiat, eu finibus odio tempus. Aliquam feugiat lacus at dolor aliquet congue.'
-        />
-
+        {sections}
       </div>
     )
   }
 }
 
-export default connect()( Digest )
+function mapState(state){
+  return {
+    digests: state.content.digests,
+    updates: state.content.updates,
+    sections: state.content.sections
+  }
+}
+
+export default connect( mapState )( Digest )

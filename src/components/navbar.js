@@ -4,6 +4,7 @@ import { pushPath } from 'redux-simple-router'
 import { Layout, Header, Textfield, Drawer, Navigation } from 'react-mdl'
 
 class Navbar extends React.Component {
+
   render() {
     return (
       <Layout fixedHeader fixedDrawer >

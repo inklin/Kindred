@@ -1,7 +1,9 @@
 import { digestConstants } from './../constants/index'
 
-export default const digestActions = {
-  loadAll: function(){
+const digestActions = {
+  loadStart: function(){
     return { type: digestConstants.loadStart }
   }
 }
+
+export default digestActions
