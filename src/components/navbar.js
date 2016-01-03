@@ -14,8 +14,6 @@ class Navbar extends React.Component {
           <Navigation>
             <a onClick={()=>{this.props.dispatch(pushPath('/'))} }>Dashboard</a>
             <a onClick={()=>{this.props.dispatch(pushPath('/editor'))} }>Editor</a>
-            <a onClick={()=>{this.props.dispatch(pushPath('/digests/1'))} }>Digest #</a>
-            <a onClick={()=>{this.props.dispatch(pushPath('/sections/1'))} }>Section #</a>
             <a onClick={()=>{this.props.dispatch(pushPath('/updates'))} }>My Updates</a>
           </Navigation>
         </Drawer>

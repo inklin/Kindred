@@ -1,4 +1,5 @@
 import Immutable from 'immutable'
+
 import { SectionConstants } from '../../constants/index'
 import { sections } from './testdata'
 

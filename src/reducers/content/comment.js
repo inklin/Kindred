@@ -1,6 +1,6 @@
-import { comments } from './testdata'
-
 import Immutable from 'immutable'
+
+import { comments } from './testdata'
 
 const defaultState = Immutable.Map( comments )
 
