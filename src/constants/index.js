@@ -7,7 +7,8 @@ export const DigestConstants = {
 export const SectionConstants = {
   LOAD_START: "LOAD_SECTION_START",
   LOAD_SUCCESS: "LOAD_SECTION_SUCCESS",
-  LOAD_ERROR: "LOAD_SECTION_ERROR"
+  LOAD_ERROR: "LOAD_SECTION_ERROR",
+  TOGGLE_VIEW: "TOGGLE_SECTION_VIEW"
 }
 
 export const UpdateConstants = {

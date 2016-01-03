@@ -3,16 +3,8 @@ import { Card, CardTitle, CardText } from 'react-mdl'
 
 export default class Section extends React.Component {
 
-  constructor(props){
-    super(props)
-    this.state = { fullView: false }
-  }
-
-  // This really should be done through redux.
   readFull = () => {
-    this.setState((state)=>{
-      return { fullView: !state.fullView }
-    })
+    this.props.readFullSection(this.props.id)
   }
 
 
@@ -24,9 +16,9 @@ export default class Section extends React.Component {
           {this.props.title}
         </CardTitle>
         <CardText>
-        {this.state.fullView ? this.props.body + this.props.body : this.props.body}
+        {this.props.fullView ? this.props.body + this.props.body : this.props.body}
           <div className="mdl-typography--text-center">
-            <a onClick={this.readFull}>{this.state.fullView ? "Less" : "Read More" }</a>
+            <a onClick={this.readFull}>{this.props.fullView ? "Less" : "Read More" }</a>
           </div>
         </CardText>
       </Card>
