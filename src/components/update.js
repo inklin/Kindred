@@ -1,13 +1,38 @@
 import React from 'react'
-import DigestCard from './digest-card'
+import Section from './digest/section'
+import { connect } from 'react-redux'
 
-export default class Update extends React.Component {
+class Update extends React.Component {
+
   render() {
+    let currentUpdate = this.props.updates.get(this.props.params.id)
+    let sections = []
+    
+    currentUpdate.sections.forEach ((sectionId) => {
+      let section = this.props.sections.get(sectionId)
+      sections.push( 
+        <Section 
+          id={section.id}
+          key={section.id}
+          title={section.title}
+          body={section.body}
+          imageUrl={section.imageUrl}
+        />)
+    })
+
     return (
       <div className="mdl-grid">
-       <DigestCard publishedAt='29 December 2015'/>
-       <DigestCard publishedAt='19 January 2016'/>
+        {sections}
       </div>
     )
   }
 }
+
+function mapState(state){
+  return {
+    updates: state.content.updates,
+    sections: state.content.sections
+  }
+}
+
+export default connect( mapState )( Update )
