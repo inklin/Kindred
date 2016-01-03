@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataTypes) {
         isInt: true,
       }
     }
+    draft: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    }
   }, {
     classMethods: {
       associate: function(models) {

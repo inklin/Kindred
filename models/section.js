@@ -13,7 +13,15 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         notEmpty: true,
-        // add length
+        // TODO add length
+      }
+    },
+    intro: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        // TODO add length
       }
     },
     body: {
@@ -21,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         notEmpty: true,
-        // add length
+        // TODO add length
       }
     },
     imageUrl: {
@@ -36,10 +44,6 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isInt: true,
       }
-    },
-    draft: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
     }
   }, {
     classMethods: {
