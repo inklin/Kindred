@@ -10,7 +10,8 @@ module.exports = function(sequelize, DataTypes) {
     }
     draft: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: false,
+      defaultValue: true
     }
   }, {
     classMethods: {
