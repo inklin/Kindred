@@ -15,7 +15,8 @@ export const SectionConstants = {
 export const UpdateConstants = {
   LOAD_START: "LOAD_UPDATE_START",
   LOAD_SUCCESS: "LOAD_UPDATE_SUCCESS",
-  LOAD_ERROR: "LOAD_UPDATE_ERROR"
+  LOAD_ERROR: "LOAD_UPDATE_ERROR",
+  SAVE_IMAGE_URL: "SAVE_UPDATE_IMAGE_URL"
 }
 
 export const CommentConstants = {

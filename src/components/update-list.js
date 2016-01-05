@@ -3,31 +3,46 @@ import DigestCard from './digest-card'
 
 import { connect } from 'react-redux'
 import { pushPath } from 'redux-simple-router'
+import { saveImageUrl } from '../actions/update.js'
 
 class UpdateList extends React.Component {
   readFullUpdate = (id) => {
     this.props.dispatch(pushPath(`/updates/${id}`))
   }
 
-  render() {
-    let updates = []
-
+  getImageUrl = (id) => {
     function getRandomArrayElement(arr){
       return arr[Math.floor(Math.random() * arr.length)]
     }
 
-    this.props.updates.forEach ( (update) => {
+    let imageUrl
+    let update = this.props.updates.get(id)
+    // gets random image URL to display in update page, clean up this messyness
+    if ( update.imageUrl === undefined ){
       let randSection = this.props.sections.get(getRandomArrayElement(update.sections))
+      imageUrl = randSection.imageUrl
+
+      this.props.dispatch( saveImageUrl(update.id, imageUrl) )
+    } else { 
+      imageUrl = update.imageUrl
+    }
+    return imageUrl
+  }
+
+  render() {
+    let updates = []
+    
+    this.props.updates.forEach ( (update) => {
 
       updates.push(
         <DigestCard
           id={update.id}
           key={update.id}
           publishedAt={update.publishedAt}
-          imageUrl={randSection.imageUrl}
+          imageUrl={this.getImageUrl(update.id)}
           readFull={this.readFullUpdate}
         />
-        )
+      )
     })
 
     return (
