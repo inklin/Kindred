@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isInt: true,
       }
-    }
+    },
     draft: {
       type: DataTypes.BOOLEAN,
       allowNull: false,

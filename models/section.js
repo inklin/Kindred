@@ -39,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
         isUrl: true,
       }
     },
-    updateId: {
+    UpdateId: {
       type: DataTypes.INTEGER,
       validate: {
         isInt: true,
