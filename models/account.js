@@ -33,6 +33,13 @@ module.exports = function(sequelize, DataTypes) {
         Account.hasMany(models.Comment);
         Account.hasMany(models.DigestViewSetting);
       }
+    },
+    instanceMethods: {
+      toJSON: function() {
+        var values = this.get();
+        delete values.password;
+        return values;
+      }
     }
   });
   return Account;
