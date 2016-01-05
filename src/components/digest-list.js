@@ -1,5 +1,8 @@
 import React from 'react'
 import DigestCard from './digest-card'
+
+import { saveImageUrl } from '../actions/digest'
+
 import { connect } from 'react-redux'
 import { pushPath } from 'redux-simple-router'
 
@@ -16,15 +19,24 @@ class DigestList extends React.Component {
     let digests = []
 
     this.props.digests.forEach ( (digest) => {
+      let imageUrl
 
       // gets random image URL to display in digest page, clean up this messyness
-      let randUpdate = this.props.updates.get(getRandomArrayElement(digest.updates))
-      let randSection = this.props.sections.get(getRandomArrayElement(randUpdate.sections))
+      if ( digest.imageUrl === undefined ){
+        let randUpdate = this.props.updates.get(getRandomArrayElement(digest.updates))
+        let randSection = this.props.sections.get(getRandomArrayElement(randUpdate.sections))
+        imageUrl = randSection.imageUrl
+
+        this.props.dispatch( saveImageUrl(digest.id, imageUrl) )
+      } else { 
+        imageUrl = digest.imageUrl
+      }
+      
 
       digests.push(<DigestCard 
         id={digest.id}
         key={digest.id}
-        imageUrl={randSection.imageUrl}
+        imageUrl={imageUrl}
         publishedAt={digest.sentAt}
         readFull={this.readFullDigest}
         />)

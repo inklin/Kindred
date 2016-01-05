@@ -1,9 +1,17 @@
-import { digestConstants } from './../constants/index'
+import { DigestConstants } from './../constants/index'
 
-const digestActions = {
-  loadStart: function(){
-    return { type: digestConstants.loadStart }
+
+export function loadStart(){
+  return { 
+    type: DigestConstants.loadStart
   }
 }
 
-export default digestActions
+export function saveImageUrl(digestId, imageUrl){
+  return {
+    imageUrl: imageUrl,
+    id: digestId,
+    type: DigestConstants.SAVE_IMAGE_URL
+  }
+}
+

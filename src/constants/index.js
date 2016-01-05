@@ -1,7 +1,8 @@
 export const DigestConstants = {
   LOAD_START: "LOAD_DIGEST_START",
   LOAD_SUCCESS: "LOAD_DIGEST_SUCCESS",
-  LOAD_ERROR: "LOAD_DIGEST_ERROR"
+  LOAD_ERROR: "LOAD_DIGEST_ERROR",
+  SAVE_IMAGE_URL: "SAVE_DIGEST_IMAGE_URL"
 }
 
 export const SectionConstants = {
