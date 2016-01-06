@@ -7,11 +7,16 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isInt: true,
       }
+    },
+    draft: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
     }
   }, {
     classMethods: {
       associate: function(models) {
-        Update.hasMany(models.Section);
+        Update.hasMany(models.Section, {onDelete: 'cascade', hooks: true});
         Update.hasMany(models.Comment, {
           foreignKey: 'UpdateId'
         });
