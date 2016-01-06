@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 
 module.exports = {
+  // Comment out when compiling for production, leave in when using webpack-dev-serer
   entry: [
     // 'webpack-dev-server/client?http://localhost:8080',
     // 'webpack/hot/only-dev-server',

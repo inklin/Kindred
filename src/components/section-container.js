@@ -1,10 +1,25 @@
 import React from 'react'
-import Section from './digest/section'
+import FullSection from './full-section'
+import { connect } from 'react-redux'
 
-export default class SectionContainer extends React.Component {
+class SectionContainer extends React.Component {
   render() {
+    let currentSection = this.props.sections.get(this.props.params.id)
+
     return (
-      <Section />
+      <FullSection 
+        imageUrl={currentSection.imageUrl}
+        title={currentSection.title}
+        body={currentSection.body}
+      />
     )
   }
 }
+
+function mapState (state) {
+  return {
+    sections: state.content.sections
+  }
+}
+
+export default connect ( mapState ) ( SectionContainer )
