@@ -20,8 +20,8 @@ module.exports = function(sequelize, DataTypes) {
     ReceiveAs: {
       type: DataTypes.STRING,
       validate: {
-        isIn: [['full', 'snippet']],
-        msg: 'Must be either full or snippet'
+        isIn: [['full', 'snippet', 'none']],
+        msg: 'Must be full, snippet, or none'
       }
     }
   }, {
