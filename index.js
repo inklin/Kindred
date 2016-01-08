@@ -18,13 +18,13 @@ server.connection({ port: PORT });
 
 server.register(plugins, function() {
 
-  server.auth.strategy('session', 'cookie', true, {
+  server.auth.strategy('session', 'cookie', false, {
     password: 'ChangeThis',
     isSecure: 'false',
     redirectTo: '/login',
     clearInvalid: true,
     validateFunc: function(req, session, callback){
-        db.Account.findById(session.id).then(function(account){
+        db.Account.findById(1).then(function(account){
           if ( account ) {
             req.currentUser = account;
             callback(null, true);
