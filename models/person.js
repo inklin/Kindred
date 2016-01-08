@@ -4,13 +4,15 @@ module.exports = function(sequelize, DataTypes) {
     firstName: {
       type: DataTypes.STRING,
       validate: {
-        notEmpty: true
+        notEmpty: true,
+        msg: 'Must not be empty'
       }
     },
     lastName: {
       type: DataTypes.STRING,
       validate: {
-        notEmpty: true
+        notEmpty: true,
+        msg: 'Must not be empty'
       }
     },
     email: {
@@ -18,12 +20,30 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       validate: {
         isEmail: true,
+        msg: 'Must be a valid email address'
       }
     },
-    AccountId: {type:
-      DataTypes.INTEGER,
+    AccountId: {
+      type: DataTypes.INTEGER,
       validate: {
-        isInt: true
+        isInt: true,
+        msg: 'Must be an integer'
+      }
+    },
+    ReceiveOn: {
+      type: DataTypes.INTEGER,
+      validate: {
+        isInt: true,
+        min: 1,
+        max: 7,
+        msg: 'Must be an integer between 1-7 (Monday to Sunday)'
+      }
+    },
+    ReceiveAs: {
+      type: DataTypes.STRING,
+      validate: {
+        isIn: [['full', 'snippet', 'none']],
+        msg: 'Must be a string: full, snippet, or none'
       }
     }
   }, {
@@ -31,7 +51,6 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         Person.belongsTo(models.Account);
         Person.hasMany(models.Digest);
-        Person.hasMany(models.DigestRecipientSetting);
         Person.hasMany(models.Contact);
       }
     }
