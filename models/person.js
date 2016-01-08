@@ -30,7 +30,8 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         Person.belongsTo(models.Account);
-        Person.hasMany(models.DigestViewSetting);
+        Person.hasMany(models.Digest);
+        Person.hasMany(models.DigestRecipientSetting);
         Person.hasMany(models.Contact);
       }
     }
