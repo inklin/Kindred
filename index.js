@@ -11,7 +11,8 @@ var routes    = require('./lib/routes');
 
 var plugins = [
   require('inert'),
-  require('hapi-auth-cookie')
+  require('hapi-auth-cookie'),
+  require('blipp')
 ];
 
 server.connection({ port: PORT });
