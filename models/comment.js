@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true
       }
     },
-    UpdateId: {
+    SectionId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
           as: 'Author',
           foreignKey: 'AccountId'
         });
-        Comment.belongsTo(models.Update);
+        Comment.belongsTo(models.Section);
       }
     }
   });
