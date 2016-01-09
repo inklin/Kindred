@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Add a new Section</title>
+  </head>
+  <body>
+    <h1>Add a new section</h1>
+    <form method="POST" action="/api/sections" enctype="multipart/form-data">
+      <div className="">
+        <label for="title" className="">Title</label>
+        <input type="text" name="title" id="title" className=""></input>
+      </div>
+      <div className="">
+        <label for="intro" className="">Intro</label>
+        <input type="text" name="intro" id="intro" className=""></input>
+      </div>
+      <div className="">
+        <label for="file" className="">Image</label>
+        <input type="file" name="file" id="file" className=""></input>
+      </div>
+      <div>
+        <label for="body">Body</label>
+        <textarea name="body" id="body"></textarea>
+      </div>
+      <input type="submit" value="Add Section"></input>
+    </form>
+  </body>
+</html>
