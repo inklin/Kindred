@@ -11,7 +11,7 @@ module.exports = {
           defaultValue: 'full'
         }
       ),
-      queryInterace.addColumn(
+      queryInterface.addColumn(
         'People',
         'ReceiveOn',
         {

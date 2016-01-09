@@ -4,30 +4,26 @@ module.exports = function(sequelize, DataTypes) {
     firstName: {
       type: DataTypes.STRING,
       validate: {
-        notEmpty: true,
-        msg: 'Must not be empty'
+        notEmpty: true
       }
     },
     lastName: {
       type: DataTypes.STRING,
       validate: {
-        notEmpty: true,
-        msg: 'Must not be empty'
+        notEmpty: true
       }
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isEmail: true,
-        msg: 'Must be a valid email address'
+        isEmail: true
       }
     },
     AccountId: {
       type: DataTypes.INTEGER,
       validate: {
-        isInt: true,
-        msg: 'Must be an integer'
+        isInt: true
       }
     },
     ReceiveOn: {
@@ -35,15 +31,13 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isInt: true,
         min: 1,
-        max: 7,
-        msg: 'Must be an integer between 1-7 (Monday to Sunday)'
+        max: 7
       }
     },
     ReceiveAs: {
       type: DataTypes.STRING,
       validate: {
-        isIn: [['full', 'snippet', 'none']],
-        msg: 'Must be a string: full, snippet, or none'
+        isIn: [['full', 'snippet', 'none']]
       }
     }
   }, {
