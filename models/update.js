@@ -17,9 +17,6 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         Update.hasMany(models.Section, {onDelete: 'cascade', hooks: true});
-        Update.hasMany(models.Comment, {
-          foreignKey: 'UpdateId'
-        });
         Update.hasMany(models.DigestUpdate);
         Update.belongsToMany(models.Digest, {
           through: 'DigestUpdates'
