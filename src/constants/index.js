@@ -25,3 +25,8 @@ export const CommentConstants = {
   LOAD_ERROR: "LOAD_COMMENT_ERROR"
 }
 
+export const AccountConstants = {
+  LOAD_START: "LOAD_ACCOUNT_START",
+  LOAD_SUCCESS: "LOAD_ACCOUNT_SUCCESS",
+  LOAD_ERROR: "LOAD_ACCOUNT_ERROR"
+}

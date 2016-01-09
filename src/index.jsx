@@ -10,7 +10,8 @@ import { Navbar, DigestList, Editor, Digest,
          UpdateList }                       from './components/index.js'
 import { digestReducer, sectionReducer,
          updateReducer, loadingReducer,
-         commentReducer }                   from './reducers/index.js'
+         commentReducer,
+         currentUserReducer }               from './reducers/index.js'
 
 const content = combineReducers ({
   digests: digestReducer,
@@ -22,6 +23,7 @@ const content = combineReducers ({
 
 const reducer = combineReducers ({
   content: content,
+  currentUser: currentUserReducer,
   routing: routeReducer
 })
 

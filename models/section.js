@@ -52,6 +52,10 @@ module.exports = function(sequelize, DataTypes) {
           as: 'Author',
           foreignKey: 'AccountId'
         });
+        Section.hasMany(models.Comment, {
+          foreignKey: 'SectionId'
+        });
+
         Section.belongsTo(models.Update);
       }
     }
