@@ -25,9 +25,16 @@ server.register(plugins, function() {
     redirectTo: '/login',
     clearInvalid: true,
     validateFunc: function(req, session, callback){
-        db.Account.findById(session.id).then(function(account){
-          if ( account ) {
-            req.currentUser = account;
+        db.Account.findAll({
+          where: {
+            id: session.id
+          },
+          include: [{
+            model: db.Person
+          }]
+        }).then(function(accounts){
+          if ( accounts.length !== 0 ) {
+            req.currentUser = accounts[0];
             callback(null, true);
           } else {
             callback(null, false);

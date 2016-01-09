@@ -31,7 +31,6 @@ module.exports = function(sequelize, DataTypes) {
         Account.hasMany(models.Update);
         Account.hasMany(models.Section);
         Account.hasMany(models.Comment);
-        Account.hasMany(models.DigestViewSetting);
       }
     },
     instanceMethods: {

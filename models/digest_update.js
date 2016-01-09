@@ -14,13 +14,6 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isInt: true,
       }
-    },
-    sendAs: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      valdate: {
-        isIn: [['full', 'snippet', 'none']],
-      }
     }
   }, {
     classMethods: {
