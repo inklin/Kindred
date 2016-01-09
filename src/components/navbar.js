@@ -10,7 +10,7 @@ class Navbar extends React.Component {
     let ajax = new XMLHttpRequest()
     ajax.open('GET', '/api/account')
     ajax.onreadystatechange = () => {
-      if ( ajax.readyState != XMLHttpRequest.DONE || ajax.status !== 200 ) {
+      if ( ajax.readyState != XMLHttpRequest.DONE) {
         return
       }
       if ( ajax.status !== 200 ) {
