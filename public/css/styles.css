@@ -48,6 +48,11 @@
   height: 350px;
 }
 
+.editor-image {
+  height: 300px;
+  width: 300px;
+}
+
 .mdl-cell.editor-section-img-box {
   position: relative;
   display: inline-block;
