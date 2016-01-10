@@ -8,7 +8,7 @@ import { addSection } from '../actions/section.js'
 
 class UpdateList extends React.Component {
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     if ( this.props.updates.size === 0 ){
       this.fetchAllUpdates()
     } else {

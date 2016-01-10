@@ -13,7 +13,7 @@ import { addUpdate } from '../actions/update.js'
 
 class DigestList extends React.Component {
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     if ( this.props.digests.size === 0 ){
       this.fetchAllDigests()
     } else {
