@@ -12,7 +12,7 @@ export default class DigestCard extends React.Component {
             style={{ background: `url('${this.props.imageUrl}') center / cover no-repeat #46B6AC`}}
             onClick={this.readFull}>
         <CardTitle>
-          <h2 className='mdl-card__title-text'>{this.props.publishedAt}</h2>
+          <h2 className='mdl-card__title-text'>{this.props.publishedAt.year}</h2>
         </CardTitle>
       </Card>
     )
