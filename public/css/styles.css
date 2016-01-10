@@ -77,7 +77,7 @@
   background-color: #eeeeee;
   font-size: 1em;
   height: 30px;
-  width: 90%;
+  width: 98%;
   padding: 5px;
 }
 
@@ -86,7 +86,7 @@
   background-color: #eeeeee;
   font-size: 1em;
   height: 70px;
-  width: 90%;
+  width: 98%;
   padding: 5px;
 }
 
@@ -95,7 +95,7 @@
   background-color: #eeeeee;
   font-size: 1em;
   height: 125px;
-  width: 90%;
+  width: 98%;
   padding: 5px;
 }
 
@@ -103,7 +103,7 @@
   position: absolute;
   display: inline-flex;
   justify-content: space-between;
-  width: 92%;
+  width: 100%;
   bottom: 0;
 }
 
@@ -116,4 +116,13 @@
   position: relative;
   flex-grow: 1;
   bottom: 0;
+}
+
+.mdl-cell.editor-update-buttons-box {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.mdl-button.editor-update-button {
+  flex-grow: 1;
 }
