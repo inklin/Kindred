@@ -1,6 +1,5 @@
 import React from 'react'
 import DigestCard from './digest-card'
-import Immutable from 'immutable'
 
 import { connect } from 'react-redux'
 import { pushPath } from 'redux-simple-router'
@@ -32,7 +31,7 @@ class UpdateList extends React.Component {
         body: section.body,
         imageUrl: section.imageUrl,
         comments: comments,
-        AccountId: section.AccountId,
+        AccountId: section.AccountId
       }))
     })
   }
@@ -63,6 +62,7 @@ class UpdateList extends React.Component {
         this.props.dispatch(loadError())
       }
       let payload = JSON.parse(ajax.response)
+      
       this.parseUpdates(payload.updates)
       this.props.dispatch(loadSuccess())
     }

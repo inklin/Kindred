@@ -1,16 +1,28 @@
 import React from 'react'
-import FullSection from './full-section'
+import Section from './section'
 import { connect } from 'react-redux'
+import { readFull } from '../actions/section.js'
+
 
 class SectionContainer extends React.Component {
+  
+  readFullSection = (id) => {
+    this.props.dispatch(readFull(id))
+  }
+
   render() {
-    let currentSection = this.props.sections.get(this.props.params.id)
+    let id = this.props.id || this.props.params.id
+    let currentSection = this.props.sections.get(id)
 
     return (
-      <FullSection 
-        imageUrl={currentSection.imageUrl}
-        title={currentSection.title}
-        body={currentSection.body}
+      <Section 
+        id={currentSection.get('id')}
+        imageUrl={currentSection.get('imageUrl')}
+        title={currentSection.get('title')}
+        intro={currentSection.get('intro')}
+        body={currentSection.get('body')}
+        fullView={currentSection.get('fullView')}
+        readFullSection={this.readFullSection}
       />
     )
   }

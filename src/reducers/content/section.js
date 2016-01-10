@@ -5,7 +5,7 @@ import { SectionConstants } from '../../constants/index'
 const defaultState = Immutable.Map( {} )
 
 function toggleView(state, action){
-  return state.update(action.id, (value) => {
+  return state.update(parseInt(action.id), (value) => {
     return value.set('fullView', !value.get('fullView'))
   })
 }

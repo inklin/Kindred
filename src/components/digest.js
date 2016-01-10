@@ -1,13 +1,8 @@
 import React from 'react'
-import Section from './digest/section'
+import SectionContainer from './section-container'
 import { connect } from 'react-redux'
-import { readFull } from '../actions/section.js'
 
 class Digest extends React.Component {
-
-  readFullSection = (id) => {
-    this.props.dispatch(readFull(id))
-  }
 
   render() {
     let currentDigest = this.props.digests.get(this.props.params.id)
@@ -18,14 +13,9 @@ class Digest extends React.Component {
         let section = this.props.sections.get(sectionId)
 
         sections.push( 
-          <Section 
+          <SectionContainer
             id={section.id}
             key={section.id}
-            title={section.title}
-            body={section.body}
-            imageUrl={section.imageUrl}
-            fullView={section.fullView}
-            readFullSection={this.readFullSection}
           />)
       })
     })

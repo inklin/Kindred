@@ -6,7 +6,7 @@ import { Router, Route, IndexRoute }        from 'react-router'
 import { createHistory }                    from 'history'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
 import { Navbar, DigestList, Editor, Digest,
-         SectionContainer, Update,
+         SectionContainer, Update, UpdateContainer,
          UpdateList }                       from './components/index.js'
 import { digestReducer, sectionReducer,
          updateReducer, loadingReducer,
@@ -45,9 +45,8 @@ ReactDOM.render(
         <IndexRoute                   component={ DigestList } />
         <Route path='editor'          component={ Editor } />
         <Route path='digests/:id'     component={ Digest } />
-        <Route path='sections/:id'    component={ SectionContainer } />
         <Route path='updates'         component={ UpdateList } />
-        <Route path='updates/:id'     component={ Update } />
+        <Route path='updates/:id'     component={ UpdateContainer } />
       </ Route>
     </ Router>
   </ Provider>,

@@ -5,5 +5,6 @@ import Digest                   from './digest.js'
 import SectionContainer         from './section-container.js'
 import Update                   from './update.js'
 import UpdateList               from './update-list.js'
+import UpdateContainer          from './update-container.js'
 
-export { Navbar, DigestList, Editor, Digest, SectionContainer, Update, UpdateList }
+export { Navbar, DigestList, Editor, Digest, SectionContainer, Update, UpdateList, UpdateContainer }
