@@ -6,7 +6,6 @@ class Digest extends React.Component {
 
   render() {
     let currentDigest = this.props.digests.get(parseInt(this.props.id))
-    console.log(currentDigest)
     let sections = []
     
     currentDigest.get('updates').forEach ((updateID) => {

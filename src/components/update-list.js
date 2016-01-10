@@ -3,7 +3,7 @@ import DigestCard from './digest-card'
 
 import { connect } from 'react-redux'
 import { pushPath } from 'redux-simple-router'
-import { saveImageUrl, loadStart, loadError, loadSuccess, addUpdate } from '../actions/update.js'
+import { saveImageUrl, loadStart, loadError, loadSuccess, addUpdate } from '../actions/my-update.js'
 import { addSection } from '../actions/section.js'
 
 class UpdateList extends React.Component {
@@ -118,7 +118,7 @@ class UpdateList extends React.Component {
 
 function mapState(state){
   return {
-    updates: state.content.updates,
+    updates: state.content.myUpdates,
     sections: state.content.sections
   }
 }
