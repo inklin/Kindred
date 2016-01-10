@@ -41,3 +41,75 @@
 .mdl-card__media > img {
   max-width: 100%;
 }
+
+/* Create New Update Editor */
+
+.mdl-cell.editor-section-main-box {
+  height: 350px;
+}
+
+.mdl-cell.editor-section-img-box {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  min-width: 300px;
+}
+
+.editor-section-image-button-box {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+.mdl-cell.editor-section-form {
+  position: relative;
+  display: inline-block;
+  vertical-align:top;
+  height: 100%;
+}
+
+.editor-section-title {
+  border: none;
+  background-color: #eeeeee;
+  font-size: 1em;
+  height: 30px;
+  width: 90%;
+  padding: 5px;
+}
+
+.editor-section-intro {
+  border: none;
+  background-color: #eeeeee;
+  font-size: 1em;
+  height: 70px;
+  width: 90%;
+  padding: 5px;
+}
+
+.editor-section-body {
+  border: none;
+  background-color: #eeeeee;
+  font-size: 1em;
+  height: 125px;
+  width: 90%;
+  padding: 5px;
+}
+
+.editor-form-button-box {
+  position: absolute;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 92%;
+  bottom: 0;
+}
+
+.mdl-button.editor-image-button {
+  position: relative;
+  bottom: 0;
+}
+
+.mdl-button.editor-form-button {
+  position: relative;
+  flex-grow: 1;
+  bottom: 0;
+}
