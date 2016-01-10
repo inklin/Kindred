@@ -17,20 +17,34 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isEmail: true,
+        isEmail: true
       }
     },
-    AccountId: {type:
-      DataTypes.INTEGER,
+    AccountId: {
+      type: DataTypes.INTEGER,
       validate: {
         isInt: true
+      }
+    },
+    ReceiveOn: {
+      type: DataTypes.INTEGER,
+      validate: {
+        isInt: true,
+        min: 1,
+        max: 7
+      }
+    },
+    ReceiveAs: {
+      type: DataTypes.STRING,
+      validate: {
+        isIn: [['full', 'snippet', 'none']]
       }
     }
   }, {
     classMethods: {
       associate: function(models) {
         Person.belongsTo(models.Account);
-        Person.hasMany(models.DigestViewSetting);
+        Person.hasMany(models.Digest);
         Person.hasMany(models.Contact);
       }
     }
