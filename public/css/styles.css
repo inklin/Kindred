@@ -123,7 +123,13 @@
   bottom: 0;
 }
 
+.mdl-cell.editor-update-buttons-spacer {
+  display: inline-block;
+  min-width: 300px;
+}
+
 .mdl-cell.editor-update-buttons-box {
+  position: relative;
   display: inline-flex;
   justify-content: space-between;
 }
