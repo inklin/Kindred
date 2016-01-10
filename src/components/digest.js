@@ -5,17 +5,17 @@ import { connect } from 'react-redux'
 class Digest extends React.Component {
 
   render() {
-    let currentDigest = this.props.digests.get(this.props.params.id)
+    let currentDigest = this.props.digests.get(parseInt(this.props.id))
+    console.log(currentDigest)
     let sections = []
     
-    currentDigest.updates.forEach ((updateID) => {
-      this.props.updates.get(updateID).sections.forEach ((sectionId) => {
-        let section = this.props.sections.get(sectionId)
+    currentDigest.get('updates').forEach ((updateID) => {
+      this.props.updates.get(updateID).get('sections').forEach ((sectionId) => {
 
         sections.push( 
           <SectionContainer
-            id={section.id}
-            key={section.id}
+            id={sectionId}
+            key={sectionId}
           />)
       })
     })

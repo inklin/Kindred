@@ -7,7 +7,7 @@ import { createHistory }                    from 'history'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
 import { Navbar, DigestList, Editor, Digest,
          SectionContainer, Update, UpdateContainer,
-         UpdateList }                       from './components/index.js'
+         UpdateList, DigestContainer }      from './components/index.js'
 import { digestReducer, sectionReducer,
          updateReducer, loadingReducer,
          commentReducer,
@@ -44,7 +44,7 @@ ReactDOM.render(
       <Route path='/' component={ Navbar } >
         <IndexRoute                   component={ DigestList } />
         <Route path='editor'          component={ Editor } />
-        <Route path='digests/:id'     component={ Digest } />
+        <Route path='digests/:id'     component={ DigestContainer } />
         <Route path='updates'         component={ UpdateList } />
         <Route path='updates/:id'     component={ UpdateContainer } />
       </ Route>

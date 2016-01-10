@@ -11,9 +11,10 @@ class SectionContainer extends React.Component {
   }
 
   render() {
-    let id = this.props.id || this.props.params.id
+    let id = parseInt(this.props.id)
     let currentSection = this.props.sections.get(id)
-
+    console.log(id, currentSection)
+    
     return (
       <Section 
         id={currentSection.get('id')}
