@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+      <link rel="stylesheet" href="/css/styles.css">
+      <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+      <div class="mdl-layout mdl-js-layout">
+       <main class="mdl-layout__content">
+         <div class="mdl-grid">
+           <div class="mdl-cell mdl-cell--10-col">
+             <h3>Settings</h3>
+           </div>
+         </div>
+           <!-- Personal Info Settings -->
+           <div class="mdl-grid">
+             <div class="mdl-cell mdl-cell--12-col mdl-cell--14-col-tablet editor-section-main-box">
+               <!-- Personal Info Avatar -->
+               <h4>Your Personal Info</h4>
+               <div class="mdl-cell mdl-cell--3-col mdl-cell--5-col-tablet editor-section-img-box">
+                 <div class="editor-image" style="background: url(http://thedemoblog.com/wp-content/uploads/2013/02/ChrisDixon-560x253.jpeg) center / cover no-repeat #eeeeee">
+                 </div>
+                 <div class="editor-section-image-button-box">
+                   <button class="mdl-button mdl-js-button mdl-button--raised editor-image-button" style="width: 300px;">Update Your Avatar</button>
+                 </div>
+               </div>
+
+              <!-- Personal Info Text -->
+               <div class="mdl-cell mdl-cell--5-col mdl-cell--7-col-tablet editor-section-form">
+                 <div>
+                   <label>First Name</label>
+                   <input class="editor-section-title" type="text" id="firstName" name="firstName" placeholder="Bob">
+                 </div><br/>
+                 <div>
+                   <div>
+                     <label>Last Name</label>
+                     <input class="editor-section-title" type="text" id="lastName" name="lastName" placeholder="Ross">
+                   </div><br/>
+                   <div>
+                     <label>Email Address</label>
+                     <input class="editor-section-title" type="text" id="email" name="email" placeholder="fluffy.clouds@example.com">
+                   </div><br/>
+                   <div>
+                     <label>Password</label>
+                     <input class="editor-section-title" type="password" id="password" name="password" placeholder="******">
+                   </div><br/>
+                <div class="editor-form-button-box">
+                  <button class="mdl-button mdl-js-button mdl-button--raised editor-form-button">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End of Personal Info Settings -->
+
+      </main>
+      </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
