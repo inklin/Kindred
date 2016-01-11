@@ -1,3 +1,9 @@
+hr {
+  border: 0;
+    height: 1px;
+    background: #999;
+}
+
 .mdl-card-dash.mdl-card {
   min-width: 250px;
   height: 400px;
