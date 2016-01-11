@@ -34,7 +34,7 @@ class Navbar extends React.Component {
 
     return (
       <Layout fixedHeader fixedDrawer >
-    
+
         <Drawer title='Kindred'>
           <img src={this.props.currentUser.get('avatarUrl')} height="240px" />
           <p>{`${this.props.currentUser.get('firstName')} ${this.props.currentUser.get('lastName')}`}</p>
@@ -42,6 +42,7 @@ class Navbar extends React.Component {
             <a onClick={()=>{this.props.dispatch(pushPath('/'))} }>Dashboard</a>
             <a onClick={()=>{this.props.dispatch(pushPath('/editor'))} }>Editor</a>
             <a onClick={()=>{this.props.dispatch(pushPath('/updates'))} }>My Updates</a>
+            <a onClick={()=>{this.props.dispatch(pushPath('/settings'))} }>Settings</a>
           </Navigation>
         </Drawer>
 
