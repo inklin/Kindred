@@ -9,9 +9,9 @@ export function loadStart(){
 export function loadSuccess(payload){
   return {
     avatarUrl: payload.avatarUrl,
-    email: payload.email,
-    firstName: payload.firstName,
-    lastName: payload.lastName,
+    email: payload.Person.email,
+    firstName: payload.Person.firstName,
+    lastName: payload.Person.lastName,
     userName: payload.username,
     type: AccountConstants.LOAD_SUCCESS
   }

@@ -1,6 +1,6 @@
 import Immutable from 'immutable'
 
-import { UpdateConstants } from '../../constants/index'
+import { MyUpdateConstants } from '../../constants/index'
 
 const defaultState = Immutable.Map( {} )
 
@@ -19,13 +19,13 @@ function addUpdate(state, action){
   }))
 }
 
-export default function updateReducer(state = defaultState, action){
+export default function myUpdateReducer(state = defaultState, action){
   switch (action.type){
 
-    case UpdateConstants.ADD_UPDATE:
+    case MyUpdateConstants.ADD_UPDATE:
       return addUpdate(state, action)
 
-    case UpdateConstants.SAVE_IMAGE_URL:
+    case MyUpdateConstants.SAVE_IMAGE_URL:
       return saveImageUrl(state, action)
 
     default:
