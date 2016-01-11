@@ -137,3 +137,72 @@
 .mdl-button.editor-update-button {
   flex-grow: 1;
 }
+
+
+/* Settings */
+
+h4.settings-h4, h5.settings-h5 {
+  margin-bottom: -15px;
+}
+
+.mdl-cell.settings-profile-img-box {
+  position: relative;
+  display: inline-block;
+  height: 350px;
+  min-width: 300px;
+}
+
+.settings-profile-image-button-box {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+.mdl-button.settings-profile-image-button {
+  position: relative;
+  bottom: 0;
+  width: 300px;
+}
+
+.mdl-cell.settings-profile-form {
+  position: relative;
+  display: inline-block;
+  vertical-align:top;
+  height: 350px;
+}
+
+.settings-profile-input {
+  border: none;
+  background-color: #eeeeee;
+  font-size: 1em;
+  height: 30px;
+  width: 98%;
+  padding: 5px;
+}
+
+.settings-profile-form-button-box {
+  position: absolute;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  bottom: 0;
+}
+
+.mdl-button.settings-profile-form-button {
+  position: relative;
+  flex-grow: 1;
+  bottom: 0;
+}
+
+.mdl-cell.settings-digest-schedule {
+  min-width: 300px;
+}
+
+.mdl-data-table.settings-contact-table {
+  margin-top: -10px;
+  width: 100%;
+}
+
+tr:nth-child(even){
+  background-color:#f5f5f5;
+}
