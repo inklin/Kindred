@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
+      <link rel="stylesheet" href="/css/styles.css">
+      <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+      <div class="mdl-layout mdl-js-layout">
+        <main class="mdl-layout__content">
+          <div class="mdl-grid">
+
+            <div class="mdl-cell mdl-cell--12-col">
+              <h3>Settings</h3>
+            </div>
+
+            <!-- Personal Info Settings -->
+            <div class="mdl-cell mdl-cell--12-col">
+              <h4 class="settings-h4">Your Personal Info</h4>
+            </div>
+
+            <!-- Personal Info Avatar -->
+            <div class="mdl-cell mdl-cell--3-col settings-profile-img-box">
+              <div class="editor-image" style="background: url(http://thedemoblog.com/wp-content/uploads/2013/02/ChrisDixon-560x253.jpeg) center / cover no-repeat #eeeeee"></div>
+              <div class="settings-profile-image-button-box">
+                <button class="mdl-button mdl-js-button mdl-button--raised settings-profile-image-button">Update Your Avatar</button>
+              </div>
+            </div>
+
+            <!-- Personal Info Text -->
+            <div class="mdl-cell mdl-cell--5-col settings-profile-form">
+              <div>
+                <label>First Name</label>
+                <input class="settings-profile-input" type="text" id="firstName" name="firstName" value="Bob">
+              </div><br/>
+              <div>
+                <label>Last Name</label>
+                <input class="settings-profile-input" type="text" id="lastName" name="lastName" value="Ross">
+              </div><br/>
+              <div>
+                <label>Email Address</label>
+                <input class="settings-profile-input" type="text" id="email" name="email" value="fluffy.clouds@example.com">
+              </div><br/>
+              <div>
+                <label>Password</label>
+                <input class="settings-profile-input" type="password" id="password" name="password" value="******">
+              </div><br/>
+              <div class="settings-profile-form-button-box">
+                <button class="mdl-button mdl-js-button mdl-button--raised settings-profile-form-button">Save</button>
+              </div>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col"><!-- Spacer --></div>
+            <!-- End Personal Info Settings -->
+
+            <!-- Digest Settings -->
+            <div class="mdl-cell mdl-cell--12-col">
+              <hr>
+              <h4 class="settings-h4">Your Digest View Settings</h4>
+            </div>
+            <!-- Digest Schedule Setting -->
+            <div class="mdl-cell mdl-cell--3-col settings-digest-schedule">
+              Receive Digests Every:
+              <select name="select">
+                <option value="monday" selected>Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+                <option value="saturday">Saturday</option>
+                <option value="sunday">Sunday</option>
+              </select>
+            </div>
+
+            <!-- Digest View Setting -->
+            <div class="mdl-cell mdl-cell--5-col">
+              Receive Digest Emails As:
+              <select name="select">
+                <option value="intro" selected>Summary View</option>
+                <option value="full">Full View</option>
+              </select>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col"><!-- Spacer --></div>
+            <!-- End Digest Settings -->
+            <!-- Contact List Settings -->
+            <div class="mdl-cell mdl-cell--12-col">
+              <hr>
+              <h4 class="settings-h4">Your Contact List Settings</h4>
+              <h5 class="settings-h5">Add A New Contact</h5>
+            </div>
+
+            <!-- Add A New Contact -->
+            <div class="mdl-cell mdl-cell--2-col">
+              <input class="editor-section-title" type="text" id="firstName" name="firstName" placeholder="first name">
+            </div>
+            <div class="mdl-cell mdl-cell--2-col">
+              <input class="editor-section-title" type="text" id="lastName" name="lastName" placeholder="last name">
+            </div>
+            <div class="mdl-cell mdl-cell--2-col">
+              <input class="editor-section-title" type="text" id="email" name="email" placeholder="email address">
+            </div>
+            <div class="mdl-cell mdl-cell--2-col">
+              <button class="mdl-button mdl-js-button mdl-button--raised editor-form-button">Save</button>
+            </div>
+
+            <div class="mdl-cell mdl-cell--4-col"><!-- Spacer --></div>
+
+            <!-- View / Edit Contacts -->
+            <div class="mdl-cell mdl-cell--8-col">
+              <h5>Edit Contacts</h5>
+              <table class="mdl-data-table mdl-js-data-table settings-contact-table">
+                <thead>
+                  <tr>
+                    <th class="mdl-data-table__cell--non-numeric">First Name</th>
+                    <th class="mdl-data-table__cell--non-numeric">Last Name</th>
+                    <th class="mdl-data-table__cell--non-numeric">Email Address</th>
+                    <th class="mdl-data-table__cell--non-numeric">Edit</th>
+                    <th class="mdl-data-table__cell--non-numeric">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">John</td>
+                    <td class="mdl-data-table__cell--non-numeric">Lennon</td>
+                    <td class="mdl-data-table__cell--non-numeric">john@example.com</td>
+                    <td class="mdl-data-table__cell--non-numeric">Edit</td>
+                    <td class="mdl-data-table__cell--non-numeric">Delete</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Paul</td>
+                    <td class="mdl-data-table__cell--non-numeric">McCartney</td>
+                    <td class="mdl-data-table__cell--non-numeric">paul@example.com</td>
+                    <td class="mdl-data-table__cell--non-numeric">Edit</td>
+                    <td class="mdl-data-table__cell--non-numeric">Delete</td>
+                  </tr>
+                  <tr>
+                    <td class="mdl-data-table__cell--non-numeric">Ringo</td>
+                    <td class="mdl-data-table__cell--non-numeric">Starr</td>
+                    <td class="mdl-data-table__cell--non-numeric">ringo@example.com</td>
+                    <td class="mdl-data-table__cell--non-numeric">Edit</td>
+                    <td class="mdl-data-table__cell--non-numeric">Delete</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- END Contact Settings -->
+
+          </div>
+        </main>
+      </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
