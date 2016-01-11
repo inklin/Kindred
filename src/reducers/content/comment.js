@@ -1,8 +1,6 @@
 import Immutable from 'immutable'
 
-import { comments } from './testdata'
-
-const defaultState = Immutable.Map( comments )
+const defaultState = Immutable.Map( {} )
 
 export default function commentReducer(state = defaultState, action){
   switch (action.type){

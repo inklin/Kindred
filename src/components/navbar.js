@@ -65,7 +65,8 @@ class Navbar extends React.Component {
 
 function mapState (state) {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    loading: state.content.loading
   }
 }
 

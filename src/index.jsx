@@ -6,11 +6,11 @@ import { Router, Route, IndexRoute }        from 'react-router'
 import { createHistory }                    from 'history'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
 import { Navbar, DigestList, Editor, Digest,
-         SectionContainer, Update,
-         UpdateList }                       from './components/index.js'
+         SectionContainer, Update, UpdateContainer,
+         UpdateList, DigestContainer }      from './components/index.js'
 import { digestReducer, sectionReducer,
          updateReducer, loadingReducer,
-         commentReducer,
+         commentReducer, myUpdateReducer,
          currentUserReducer }               from './reducers/index.js'
 
 const content = combineReducers ({
@@ -18,7 +18,8 @@ const content = combineReducers ({
   sections: sectionReducer,
   updates: updateReducer,
   comments: commentReducer,
-  loading: loadingReducer
+  loading: loadingReducer,
+  myUpdates: myUpdateReducer
 })
 
 const reducer = combineReducers ({
@@ -44,10 +45,9 @@ ReactDOM.render(
       <Route path='/' component={ Navbar } >
         <IndexRoute                   component={ DigestList } />
         <Route path='editor'          component={ Editor } />
-        <Route path='digests/:id'     component={ Digest } />
-        <Route path='sections/:id'    component={ SectionContainer } />
+        <Route path='digests/:id'     component={ DigestContainer } />
         <Route path='updates'         component={ UpdateList } />
-        <Route path='updates/:id'     component={ Update } />
+        <Route path='updates/:id'     component={ UpdateContainer } />
       </ Route>
     </ Router>
   </ Provider>,

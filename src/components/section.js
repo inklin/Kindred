@@ -16,7 +16,7 @@ export default class Section extends React.Component {
           {this.props.title}
         </CardTitle>
         <CardText>
-        {this.props.fullView ? this.props.body + this.props.body : this.props.body}
+        {this.props.fullView ? `${this.props.intro} ${this.props.body}` : this.props.intro}
           <div className="mdl-typography--text-center">
             <a onClick={this.readFull}>{this.props.fullView ? "Less" : "Read More" }</a>
           </div>

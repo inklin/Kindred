@@ -1,52 +1,18 @@
 import React from 'react'
-import DigestCard from './digest-card'
-
-import { saveImageUrl } from '../actions/digest'
-
+import Digest from './digest'
 import { connect } from 'react-redux'
-import { pushPath } from 'redux-simple-router'
 
 import { loadStart, loadError, loadSuccess, addDigest } from '../actions/digest.js'
 import { addSection } from '../actions/section.js'
 import { addUpdate } from '../actions/update.js'
 
-
-class DigestList extends React.Component {
+class DigestContainer extends React.Component {
 
   componentDidMount = () => {
-    if ( this.props.digests.size === 0 ){
-      this.fetchAllDigests()
-    } else {
-      this.props.digests.forEach( (digest) =>{
-        this.getImageUrl(digest.get('id'))
-      })
+    if (this.props.digests.get(parseInt(this.props.params.id))){
+      return
     }
-  }
-
-  readFullDigest = (id) => {
-    this.props.dispatch(pushPath(`/digests/${id}`))
-  }
-
-  getImageUrl = (id) => {
-    function getRandomArrayElement(arr){
-      return arr[Math.floor(Math.random() * arr.length)]
-    }
-
-    let imageUrl
-
-    let digest = this.props.digests.get(id)
-
-    // gets random image URL to display in update page, clean up this messyness
-    if ( digest.get('imageUrl') === undefined ){
-      let randUpdate = this.props.updates.get(getRandomArrayElement(digest.get('updates')))
-      let randSection = this.props.sections.get(getRandomArrayElement(randUpdate.get('sections')))
-      imageUrl = randSection.get('imageUrl')
-
-      this.props.dispatch( saveImageUrl(digest.get('id'), imageUrl))
-    } else { 
-      imageUrl = digest.get('imageUrl')
-    }
-    return imageUrl
+    this.fetchDigest()
   }
 
   parseSections = (sections) => {
@@ -94,9 +60,9 @@ class DigestList extends React.Component {
     })
   }
 
-  fetchAllDigests = () => {
+  fetchDigest = () => {
     let ajax = new XMLHttpRequest()
-    ajax.open('GET', '/api/digests')
+    ajax.open('GET', '/api/digests/' + this.props.params.id)
     ajax.onreadystatechange = () => {
       if ( ajax.readyState != XMLHttpRequest.DONE ) {
         return
@@ -106,7 +72,7 @@ class DigestList extends React.Component {
       }
       let payload = JSON.parse(ajax.response).data
       
-      this.parseDigests(payload)
+      this.parseDigests([payload])
       this.props.dispatch(loadSuccess())
     }
     ajax.send()
@@ -114,22 +80,25 @@ class DigestList extends React.Component {
   }
 
   render() {
-    let digests = []
+    let currentDigest = this.props.digests.get(parseInt(this.props.params.id))
+    if ( currentDigest === undefined ){
+      return <h1>Loading</h1>
+    }
+    let currentSections = []
 
-    this.props.digests.forEach ( (digest) => {      
-
-      digests.push(<DigestCard 
-        id={digest.get('id')}
-        key={digest.get('id')}
-        imageUrl={digest.get('imageUrl')}
-        publishedAt={digest.get('sentAt')}
-        readFull={this.readFullDigest}
-      />)
+    currentDigest.get('updates').forEach ((updateID) => {
+      this.props.updates.get(updateID).get('sections').forEach ((sectionId) => {
+        currentSections.push(sectionId)
+      })
     })
+
     return (
-     <div className='mdl-grid'>
-      {digests}
-     </div>
+      <div className="mdl-grid">
+        <Digest
+          id={currentDigest.get('id')}
+          sections={currentSections}
+        />
+      </div>
     )
   }
 }
@@ -141,4 +110,5 @@ function mapState(state){
     sections: state.content.sections
   }
 }
-export default connect( mapState )( DigestList )
+
+export default connect( mapState )( DigestContainer )

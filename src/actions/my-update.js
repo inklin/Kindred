@@ -1,28 +1,28 @@
-import { UpdateConstants } from './../constants/index'
+import { MyUpdateConstants } from './../constants/index'
 
 export function saveImageUrl(updateId, imageUrl){
   return {
     imageUrl: imageUrl,
     id: updateId,
-    type: UpdateConstants.SAVE_IMAGE_URL
+    type: MyUpdateConstants.SAVE_IMAGE_URL
   }
 }
 
 export function loadStart(){
   return {
-    type: UpdateConstants.LOAD_START
+    type: MyUpdateConstants.LOAD_START
   }
 }
 
 export function loadSuccess(){
   return {
-    type: UpdateConstants.LOAD_SUCCESS
+    type: MyUpdateConstants.LOAD_SUCCESS
   }
 }
 
 export function loadError(){
   return {
-    type: UpdateConstants.LOAD_ERROR
+    type: MyUpdateConstants.LOAD_ERROR
   }
 }
 
@@ -32,6 +32,6 @@ export function addUpdate(update){
     draft: update.draft,
     sections: update.sections,
     AccountId: update.AccountId,
-    type: UpdateConstants.ADD_UPDATE
+    type: MyUpdateConstants.ADD_UPDATE
   }
 }
