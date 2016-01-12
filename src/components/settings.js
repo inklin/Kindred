@@ -14,6 +14,7 @@ export default class Settings extends React.Component {
       firstName: ReactDOM.findDOMNode(this.refs.firstName).value,
       lastName: ReactDOM.findDOMNode(this.refs.lastName).value,
       email: ReactDOM.findDOMNode(this.refs.email).value,
+      username: ReactDOM.findDOMNode(this.refs.username).value,
       password: ReactDOM.findDOMNode(this.refs.password).value,
       currentUserId: this.props.currentUser.get('AccountId')
     };
@@ -82,6 +83,10 @@ export default class Settings extends React.Component {
             <div>
               <label>Email Address</label>
               <input className="settings-profile-input" type="text" ref="email" name="email" defaultValue={`${this.props.currentUser.get('email')}`} />
+            </div><br/>
+            <div>
+              <label>Username</label>
+              <input className="settings-profile-input" type="text" ref="username" name="username" defaultValue={`${this.props.currentUser.get('userName')}`} />
             </div><br/>
             <div>
               <label>Password</label>
