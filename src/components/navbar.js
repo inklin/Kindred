@@ -37,7 +37,7 @@ class Navbar extends React.Component {
     }
 
     return (
-      <Layout fixedHeader fixedDrawer >
+      <Layout fixedDrawer >
 
         <Drawer title='kindred' className="navbar-bground">
           <div className="navbar-avatar" style={navAvatar}></div>
@@ -50,14 +50,6 @@ class Navbar extends React.Component {
             <a onClick={()=>{this.props.dispatch(pushPath('/settings'))} }>Settings</a>
           </Navigation>
         </Drawer>
-
-        <Header title='Kindred'>
-          <Textfield
-            label='Search'
-            expandable
-            expandableIcon='search'
-          />
-        </Header>
 
         <main className="mdl-layout__content">
           <div className="page-content">
