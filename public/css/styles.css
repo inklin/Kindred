@@ -83,6 +83,10 @@ hr {
   color: #D1D5DE;
 }
 
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
+    background-color: #434b37;
+}
+
 /* Create New Update - Editor */
 
 .editor-section-main-box {
