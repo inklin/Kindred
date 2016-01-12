@@ -28,6 +28,10 @@ class Navbar extends React.Component {
   }
 
   render() {
+    var navAvatar = {
+      background: `url('${this.props.currentUser.get('avatarUrl')}') center / cover no-repeat`
+    };
+
     if (this.props.currentUser.get('loading')) {
       return <h1>Loading...</h1>
     }
@@ -35,9 +39,10 @@ class Navbar extends React.Component {
     return (
       <Layout fixedHeader fixedDrawer >
 
-        <Drawer title='Kindred'>
-          <img src={this.props.currentUser.get('avatarUrl')} height="240px" />
-          <p>{`${this.props.currentUser.get('firstName')} ${this.props.currentUser.get('lastName')}`}</p>
+        <Drawer title='kindred' className="navbar-bground">
+          <div className="navbar-avatar" style={navAvatar}></div>
+          <p className="navbar-username">Welcome back {`${this.props.currentUser.get('firstName')}`}</p>
+
           <Navigation>
             <a onClick={()=>{this.props.dispatch(pushPath('/'))} }>Dashboard</a>
             <a onClick={()=>{this.props.dispatch(pushPath('/editor'))} }>Editor</a>
