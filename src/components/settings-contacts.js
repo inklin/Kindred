@@ -1,4 +1,5 @@
 import React from 'react'
+import Contact from './contact'
 import { connect } from 'react-redux'
 import { loadError, loadSuccess, addNewContact } from '../actions/account'
 
@@ -53,23 +54,42 @@ class SettingsContacts extends React.Component {
     xmlhttp.send(requestBuildQueryString(formData));
   }
 
-  render() {
-  // just thinking through bringing CurrentUsers contacts into the form
-    let contacts = ["test@example.com", "someonelse@example.com", "anotherperson@example.com"];
+  deleteContact = (id) => {
+    var xmlhttp = new XMLHttpRequest();
 
-    // check to see if a new contact has been added and if so, add their email address to the table
+    xmlhttp.onreadystatechange = () => {
+      if (xmlhttp.readyState === 4) {
+        var response = JSON.parse(xmlhttp.responseText);
+        if (xmlhttp.status === 200 && response.status === 'OK') {
+          // TODO add dispatch action
+        }
+        else {
+          this.props.dispatch(loadError())
+        }
+      }
+    };
+
+    xmlhttp.open('DELETE', `api/contacts/${id}`, true);
+    // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send();
+  }
+
+  render() {
+  // TODO replace contacts variable with real data
+    let contacts = ["test@example.com", "someonelse@example.com", "anotherperson@example.com"];
+    let counter = 0; // TODO remove me
+  // If a new contact has been added, add that contact to the table
     if (this.props.currentUser.get('contactEmail') !== undefined) { contacts.push(this.props.currentUser.get('contactEmail')) }
 
-    let contactRows = contacts.map ( (contact) => {
+    let contactRows = contacts.map ( (contact, counter) => {
+      counter += 1 // TODO remove me
       return (
-        <tr>
-          <td className="mdl-data-table__cell--non-numeric">{contact}</td>
-          <td className="mdl-data-table__cell--non-numeric">
-            <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon settings-delete-contact-button">
-              <i className="material-icons md-18">delete</i>
-            </button>
-          </td>
-        </tr>
+        <Contact
+          id={counter} // TODO {contact.get('id')}
+          key={counter} // TODO {contact.get('id')}
+          email={contact}
+          deleteContact={this.deleteContact}
+        />
       )
     })
 
