@@ -12,7 +12,6 @@ export function loadSuccess(payload){
     email: payload.Person.email,
     firstName: payload.Person.firstName,
     lastName: payload.Person.lastName,
-    AccountId: payload.id,
     userName: payload.username,
     type: AccountConstants.LOAD_SUCCESS
   }
