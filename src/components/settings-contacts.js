@@ -54,8 +54,12 @@ class SettingsContacts extends React.Component {
   }
 
   render() {
+  // just thinking through bringing CurrentUsers contacts into the form
+    let contacts = ["test@example.com", "someonelse@example.com", "anotherperson@example.com"];
 
-    let contacts = contacts = ["test@example.com", "someonelse@example.com", "anotherperson@example.com"];
+    // check to see if a new contact has been added and if so, add their email address to the table
+    if (this.props.currentUser.get('contactEmail') !== undefined) { contacts.push(this.props.currentUser.get('contactEmail')) }
+
     let contactRows = contacts.map ( (contact) => {
       return (
         <tr>
