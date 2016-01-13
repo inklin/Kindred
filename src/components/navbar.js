@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { pushPath } from 'redux-simple-router'
-import { Layout, Header, Textfield, Drawer, Navigation } from 'react-mdl'
+import { Layout, Header, Textfield, Drawer, Navigation, Grid } from 'react-mdl'
 import { loadStart, loadSuccess, loadError } from '../actions/account'
 
 class Navbar extends React.Component {
@@ -37,30 +37,24 @@ class Navbar extends React.Component {
     }
 
     return (
-      <Layout fixedHeader fixedDrawer >
+      <Layout fixedDrawer >
 
         <Drawer title='kindred' className="navbar-bground">
           <div className="navbar-avatar" style={navAvatar}></div>
           <p className="navbar-username">Welcome back {`${this.props.currentUser.get('firstName')}`}</p>
+
           <Navigation>
             <a onClick={()=>{this.props.dispatch(pushPath('/'))} }>Dashboard</a>
             <a onClick={()=>{this.props.dispatch(pushPath('/editor'))} }>Editor</a>
             <a onClick={()=>{this.props.dispatch(pushPath('/updates'))} }>My Updates</a>
+            <a onClick={()=>{this.props.dispatch(pushPath('/settings'))} }>Settings</a>
           </Navigation>
         </Drawer>
-
-        <Header title='Kindred'>
-          <Textfield
-            label='Search'
-            expandable
-            expandableIcon='search'
-          />
-        </Header>
-
+        
         <main className="mdl-layout__content">
-          <div className="page-content">
-            {this.props.children}
-          </div>
+          <Grid>
+              {this.props.children}
+          </Grid>
         </main>
       </Layout>
     )

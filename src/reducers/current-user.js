@@ -29,6 +29,19 @@ function loadSuccess(state, action){
   })
 }
 
+function setPersonalInfo(state, action) {
+  // update state to info user provided
+  return Immutable.Map({
+    avatarUrl: action.avatarUrl,
+    email: action.email,
+    firstName: action.firstName,
+    lastName: action.lastName,
+    userName: action.userName,
+    loading: false
+  })
+}
+
+
 export default function currentUserReducer(state = defaultState, action){
   switch (action.type){
     case AccountConstants.LOAD_START:
@@ -39,6 +52,9 @@ export default function currentUserReducer(state = defaultState, action){
 
     case AccountConstants.LOAD_ERROR:
       return loadError(state, action)
+
+    case AccountConstants.SET_PERSONAL_INFO:
+      return setPersonalInfo(state, action)
 
     default:
       return state

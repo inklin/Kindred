@@ -71,7 +71,7 @@ class DigestContainer extends React.Component {
         this.props.dispatch(loadError())
       }
       let payload = JSON.parse(ajax.response).data
-      
+
       this.parseDigests([payload])
       this.props.dispatch(loadSuccess())
     }
@@ -93,12 +93,12 @@ class DigestContainer extends React.Component {
     })
 
     return (
-      <div className="mdl-grid">
+      <span className="full-width">
         <Digest
           id={currentDigest.get('id')}
           sections={currentSections}
         />
-      </div>
+      </span>
     )
   }
 }

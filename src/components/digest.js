@@ -7,11 +7,11 @@ class Digest extends React.Component {
   render() {
     let currentDigest = this.props.digests.get(parseInt(this.props.id))
     let sections = []
-    
+
     currentDigest.get('updates').forEach ((updateID) => {
       this.props.updates.get(updateID).get('sections').forEach ((sectionId) => {
 
-        sections.push( 
+        sections.push(
           <SectionContainer
             id={sectionId}
             key={sectionId}
@@ -20,9 +20,9 @@ class Digest extends React.Component {
     })
 
     return (
-      <div className="mdl-grid">
+      <span>
         {sections}
-      </div>
+      </span>
     )
   }
 }
