@@ -295,3 +295,33 @@ h4.settings-h4, h5.settings-h5 {
   width: 100%;
   background-color:#ffffff;
 }
+
+/* Digest Card */
+
+.mdl-card__title {
+  background-color: rgba(0,0,0,0.6)
+}
+
+.digest-card-box {
+  display: flex;
+  width: 100%;
+  height: 390px;
+}
+
+.digest-card-date-box {
+  align-self: flex-end;
+}
+
+.mdl-card__title-text.digest-card-date-day {
+  font-size: 5em;
+  font-weight: bold;
+  line-height: .8;
+}
+
+.mdl-card__title-text.digest-card-date-month {
+  font-size: 3em;
+}
+
+.mdl-card__title-text.digest-card-date-year {
+  font-size: 3em;
+}
