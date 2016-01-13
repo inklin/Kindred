@@ -6,6 +6,8 @@ class SettingsContacts extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.sendFormData();
+    var form = this.refs.newContactForm;
+    form.reset();
   }
 
   sendFormData = () => {
@@ -52,6 +54,21 @@ class SettingsContacts extends React.Component {
   }
 
   render() {
+
+    let contacts = contacts = ["test@example.com", "someonelse@example.com", "anotherperson@example.com"];
+    let contactRows = contacts.map ( (contact) => {
+      return (
+        <tr>
+          <td className="mdl-data-table__cell--non-numeric">{contact}</td>
+          <td className="mdl-data-table__cell--non-numeric">
+            <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon settings-delete-contact-button">
+              <i className="material-icons md-18">delete</i>
+            </button>
+          </td>
+        </tr>
+      )
+    })
+
     return (
       <span>
         <div className="mdl-cell mdl-cell--12-col">
@@ -61,7 +78,7 @@ class SettingsContacts extends React.Component {
         </div>
 
         {/* Add A New Contact */}
-        <form action="" onSubmit={this.handleSubmit}>
+        <form ref="newContactForm" action="" onSubmit={this.handleSubmit}>
           <div className="mdl-cell mdl-cell--4-col">
             <input className="settings-add-contact-input" type="text" ref="contactEmail" id="email" name="email" placeholder="email address" />
           </div>
@@ -82,30 +99,7 @@ class SettingsContacts extends React.Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="mdl-data-table__cell--non-numeric">john@example.com</td>
-                <td className="mdl-data-table__cell--non-numeric">
-                  <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon settings-delete-contact-button">
-                    <i className="material-icons md-18">delete</i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td className="mdl-data-table__cell--non-numeric">paul@example.com</td>
-                <td className="mdl-data-table__cell--non-numeric">
-                  <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon settings-delete-contact-button">
-                    <i className="material-icons md-18">delete</i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td className="mdl-data-table__cell--non-numeric">ringo@example.com</td>
-                <td className="mdl-data-table__cell--non-numeric">
-                  <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon settings-delete-contact-button">
-                    <i className="material-icons md-18">delete</i>
-                  </button>
-                </td>
-              </tr>
+              {contactRows}
             </tbody>
           </table>
         </div>
