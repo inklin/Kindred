@@ -13,6 +13,8 @@ export function loadSuccess(payload){
     firstName: payload.Person.firstName,
     lastName: payload.Person.lastName,
     userName: payload.username,
+    digestSchedule: payload.Person.ReceiveOn,
+    digestView: payload.Person.ReceiveAs,
     type: AccountConstants.LOAD_SUCCESS
   }
 }
@@ -32,5 +34,18 @@ export function setPersonalInfo(data) {
     avatarUrl: data.avatarUrl,
     userName: data.username,
     password: data.password
+  }
+}
+
+export function setDigestSettings(data) {
+  return {
+    type: AccountConstants.SET_DIGEST_SETTINGS,
+    digestSchedule: data.digestSchedule,
+    digestView: data.digestView,
+    avatarUrl: data.avatarUrl,
+    email: data.email,
+    firstName: data.firstName,
+    lastName: data.lastName,
+    userName: data.username
   }
 }

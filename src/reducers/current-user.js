@@ -7,6 +7,8 @@ const defaultState = Immutable.Map({
     firstName: null,
     lastName: null,
     userName: null,
+    digestSchedule: null,
+    digestView: null,
     loading: false
 })
 
@@ -25,6 +27,8 @@ function loadSuccess(state, action){
     firstName: action.firstName,
     lastName: action.lastName,
     userName: action.userName,
+    digestSchedule: action.digestSchedule,
+    digestView: action.digestView,
     loading: false
   })
 }
@@ -37,6 +41,20 @@ function setPersonalInfo(state, action) {
     firstName: action.firstName,
     lastName: action.lastName,
     userName: action.userName,
+    loading: false
+  })
+}
+
+function setDigestSettings(state, action) {
+  // update state to info user provided
+  return Immutable.Map({
+    avatarUrl: action.avatarUrl,
+    email: action.email,
+    firstName: action.firstName,
+    lastName: action.lastName,
+    userName: action.userName,
+    digestSchedule: action.digestSchedule,
+    digestView: action.digestView,
     loading: false
   })
 }
@@ -55,6 +73,9 @@ export default function currentUserReducer(state = defaultState, action){
 
     case AccountConstants.SET_PERSONAL_INFO:
       return setPersonalInfo(state, action)
+
+    case AccountConstants.SET_DIGEST_SETTINGS:
+      return setDigestSettings(state, action)
 
     default:
       return state

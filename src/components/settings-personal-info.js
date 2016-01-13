@@ -15,8 +15,7 @@ class SettingsPersonalInfo extends React.Component {
       email: this.refs.email.value,
       username: this.refs.username.value,
       password: this.refs.password.value,
-      avatarUrl: `${this.props.currentUser.get('avatarUrl')}`,
-      currentUserId: this.props.currentUser.get('AccountId')
+      avatarUrl: `${this.props.currentUser.get('avatarUrl')}`
     };
 
     this.props.dispatch(setPersonalInfo(formData));

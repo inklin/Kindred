@@ -112,10 +112,21 @@ i.material-icons.md-18 {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1em;
   color: #D1D5DE;
+  padding: 5px 40px;
 }
 
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
     background-color: #434b37;
+}
+
+.navbar-link-group-spacer {
+  height: 40px;
+}
+
+.navBar-info {
+  font-size: .9em;
+  font-weight: 300;
+  color: #ffffff;
 }
 
 /* Create New Update - Editor */
