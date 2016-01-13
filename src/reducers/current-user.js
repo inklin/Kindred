@@ -7,7 +7,6 @@ const defaultState = Immutable.Map({
     firstName: null,
     lastName: null,
     userName: null,
-    AccountId: null,
     loading: false
 })
 
@@ -26,7 +25,6 @@ function loadSuccess(state, action){
     firstName: action.firstName,
     lastName: action.lastName,
     userName: action.userName,
-    AccountId: action.AccountId,
     loading: false
   })
 }
@@ -39,7 +37,6 @@ function setPersonalInfo(state, action) {
     firstName: action.firstName,
     lastName: action.lastName,
     userName: action.userName,
-    AccountId: action.AccountId,
     loading: false
   })
 }
