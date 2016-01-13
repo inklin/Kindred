@@ -46,15 +46,28 @@ function setPersonalInfo(state, action) {
 }
 
 function setDigestSettings(state, action) {
-  // update state to info user provided
   return Immutable.Map({
-    avatarUrl: action.avatarUrl,
-    email: action.email,
-    firstName: action.firstName,
-    lastName: action.lastName,
-    userName: action.userName,
     digestSchedule: action.digestSchedule,
     digestView: action.digestView,
+    firstName: action.firstName,
+    lastName: action.lastName,
+    email: action.email,
+    userName: action.userName,
+    avatarUrl: action.avatarUrl,
+    loading: false
+  })
+}
+
+function addNewContact(state, action) {
+  return Immutable.Map({
+    contactEmail: action.contactEmail,
+    firstName: action.firstName,
+    lastName: action.lastName,
+    email: action.email,
+    digestSchedule: action.digestSchedule,
+    digestView: action.digestView,
+    userName: action.userName,
+    avatarUrl: action.avatarUrl,
     loading: false
   })
 }
@@ -76,6 +89,9 @@ export default function currentUserReducer(state = defaultState, action){
 
     case AccountConstants.SET_DIGEST_SETTINGS:
       return setDigestSettings(state, action)
+
+    case AccountConstants.ADD_NEW_CONTACT:
+      return addNewContact(state, action)
 
     default:
       return state

@@ -1,6 +1,56 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { loadError, loadSuccess, addNewContact } from '../actions/account'
 
-export default class SettingsContacts extends React.Component {
+class SettingsContacts extends React.Component {
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.sendFormData();
+  }
+
+  sendFormData = () => {
+    var formData = {
+      digestSchedule: this.props.currentUser.get('digestSchedule'),
+      digestView: this.props.currentUser.get('digestView'),
+      firstName: this.props.currentUser.get('firstName'),
+      lastName: this.props.currentUser.get('lastName'),
+      email: this.props.currentUser.get('email'),
+      username: this.props.currentUser.get('userName'),
+      avatarUrl: this.props.currentUser.get('avatarUrl'),
+      // contacts: this.props.currentUser.get('contacts'),
+      contactEmail: this.refs.contactEmail.value
+    };
+
+    this.props.dispatch(addNewContact(formData));
+
+    var requestBuildQueryString = (params) => {
+      var queryString = [];
+      for(var property in params)
+        if (params.hasOwnProperty(property)) {
+          queryString.push(encodeURIComponent(property) + '=' + encodeURIComponent(params[property]));
+        }
+      return queryString.join('&');
+    }
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = () => {
+      if (xmlhttp.readyState === 4) {
+        var response = JSON.parse(xmlhttp.responseText);
+        if (xmlhttp.status === 200 && response.status === 'OK') {
+          this.props.dispatch(loadSuccess(response.data))
+        }
+        else {
+          this.props.dispatch(loadError())
+        }
+      }
+    };
+
+    xmlhttp.open('POST', 'api/contacts', true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send(requestBuildQueryString(formData));
+  }
+
   render() {
     return (
       <span>
@@ -11,12 +61,14 @@ export default class SettingsContacts extends React.Component {
         </div>
 
         {/* Add A New Contact */}
+        <form action="" onSubmit={this.handleSubmit}>
           <div className="mdl-cell mdl-cell--4-col">
-            <input className="settings-add-contact-input" type="text" id="email" name="email" placeholder="email address" />
+            <input className="settings-add-contact-input" type="text" ref="contactEmail" id="email" name="email" placeholder="email address" />
           </div>
           <div className="mdl-cell mdl-cell--2-col">
-            <button className="mdl-button mdl-js-button mdl-button--raised editor-form-button">Save</button>
+            <button type="submit" className="mdl-button mdl-js-button mdl-button--raised editor-form-button">Save</button>
           </div>
+        </form>
 
 
         {/* View / Edit Contacts */}
@@ -62,3 +114,11 @@ export default class SettingsContacts extends React.Component {
     )
   }
 }
+
+function mapState (state) {
+  return {
+    currentUser: state.currentUser
+  }
+}
+
+export default connect( mapState )( SettingsContacts )

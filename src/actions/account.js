@@ -49,3 +49,17 @@ export function setDigestSettings(data) {
     userName: data.username
   }
 }
+
+export function addNewContact(data) {
+  return {
+    type: AccountConstants.ADD_NEW_CONTACT,
+    contactEmail: data.contactEmail,
+    digestSchedule: data.digestSchedule,
+    digestView: data.digestView,
+    avatarUrl: data.avatarUrl,
+    email: data.email,
+    firstName: data.firstName,
+    lastName: data.lastName,
+    userName: data.username
+  }
+}
