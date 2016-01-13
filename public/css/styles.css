@@ -28,6 +28,7 @@ i.material-icons.md-18 {
 .mdl-card-dash.mdl-card {
   min-width: 250px;
   height: 400px;
+  display: inline-block;
 }
 
 .mdl-card-digest > .mdl-card__title {
@@ -305,7 +306,7 @@ h4.settings-h4, h5.settings-h5 {
 .digest-card-box {
   display: flex;
   width: 100%;
-  height: 390px;
+  height: 380px;
 }
 
 .digest-card-date-box {
