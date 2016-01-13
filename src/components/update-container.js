@@ -64,11 +64,11 @@ class UpdateContainer extends React.Component {
       return <h1>Loading</h1>
     }
     let sections = currentUpdate.get('sections')
-  
+
     return (
-      <div className="mdl-grid">
+      <span className="full-width">
         <Update sections={sections} />
-      </div>
+      </span>
     )
   }
 }

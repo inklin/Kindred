@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { pushPath } from 'redux-simple-router'
-import { Layout, Header, Textfield, Drawer, Navigation } from 'react-mdl'
+import { Layout, Header, Textfield, Drawer, Navigation, Grid } from 'react-mdl'
 import { loadStart, loadSuccess, loadError } from '../actions/account'
 
 class Navbar extends React.Component {
@@ -50,11 +50,11 @@ class Navbar extends React.Component {
             <a onClick={()=>{this.props.dispatch(pushPath('/settings'))} }>Settings</a>
           </Navigation>
         </Drawer>
-
+        
         <main className="mdl-layout__content">
-          <div className="page-content">
-            {this.props.children}
-          </div>
+          <Grid>
+              {this.props.children}
+          </Grid>
         </main>
       </Layout>
     )

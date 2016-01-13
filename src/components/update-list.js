@@ -62,7 +62,7 @@ class UpdateList extends React.Component {
         this.props.dispatch(loadError())
       }
       let payload = JSON.parse(ajax.response)
-      
+
       this.parseUpdates(payload.updates)
       this.props.dispatch(loadSuccess())
     }
@@ -88,7 +88,7 @@ class UpdateList extends React.Component {
       imageUrl = randSection.get('imageUrl')
 
       this.props.dispatch( saveImageUrl(update.get('id'), imageUrl))
-    } else { 
+    } else {
       imageUrl = update.get('imageUrl')
     }
     return imageUrl
@@ -109,9 +109,9 @@ class UpdateList extends React.Component {
     })
 
     return (
-      <div className="mdl-grid">
+      <span>
         { updates }
-      </div>
+      </span>
     )
   }
 }
