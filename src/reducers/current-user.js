@@ -41,6 +41,8 @@ function setPersonalInfo(state, action) {
     firstName: action.firstName,
     lastName: action.lastName,
     userName: action.userName,
+    digestSchedule: action.digestSchedule,
+    digestView: action.digestView,
     loading: false
   })
 }

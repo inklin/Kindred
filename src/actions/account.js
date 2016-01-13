@@ -33,7 +33,9 @@ export function setPersonalInfo(data) {
     email: data.email,
     avatarUrl: data.avatarUrl,
     userName: data.username,
-    password: data.password
+    password: data.password,
+    digestSchedule: data.digestSchedule,
+    digestView: data.digestView
   }
 }
 
