@@ -127,7 +127,7 @@ class DigestList extends React.Component {
       />)
     })
     return (
-     <span>
+     <span className="full-width">
       {digests}
      </span>
     )

@@ -11,7 +11,7 @@ export default class DigestCard extends React.Component {
     let DateString = publishedAt.toDateString()
     return (
       <Card className='mdl-card-dash mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-shadow--2dp'
-            style={{ background: `url('${this.props.imageUrl}') center / cover no-repeat #46B6AC`}}
+            style={{ background: `url('${this.props.imageUrl}') center / cover no-repeat #657153`}}
             onClick={this.readFull}>
         <CardTitle>
           <h2 className='mdl-card__title-text'>{DateString}</h2>

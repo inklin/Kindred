@@ -109,7 +109,7 @@ class UpdateList extends React.Component {
     })
 
     return (
-      <span>
+      <span className="full-width">
         { updates }
       </span>
     )
