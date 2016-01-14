@@ -7,6 +7,7 @@ import { addDigest, loadStart as digestLoadStart, loadSuccess as digestLoadSucce
 import { addSection } from '../actions/section'
 import { addUpdate } from '../actions/update'
 import { addUpdate as addMyUpdate, loadStart as updateLoadStart, loadSuccess as updateLoadSuccess, loadError as updateLoadError } from '../actions/my-update'
+import { addContact, loadStart as contactLoadStart, loadSuccess as contactLoadSuccess, loadError as contactLoadError } from '../actions/contact'
 
 
 class Navbar extends React.Component {
@@ -15,6 +16,35 @@ class Navbar extends React.Component {
     this.fetchAccountInfo()
     this.fetchAllDigests()
     this.fetchAllUpdates()
+    this.fetchAllContacts()
+  }
+
+  fetchAllContacts = () => {
+    let ajax = new XMLHttpRequest()
+    ajax.open('GET', '/api/contacts')
+    ajax.onreadystatechange = () => {
+      if ( ajax.readyState != XMLHttpRequest.DONE ) {
+        return
+      }
+      if ( ajax.status !== 200 ) {
+        this.props.dispatch(contactLoadError())
+      }
+      let payload = JSON.parse(ajax.response)
+      
+      this.parseContacts(payload.contacts)
+      this.props.dispatch(contactLoadSuccess())
+    }
+    ajax.send()
+    this.props.dispatch(contactLoadStart())
+  }
+
+  parseContacts = (contacts) => {
+    contacts.forEach( (contact) => {
+      this.props.dispatch(addContact({
+        id: contact.id,
+        email: contact.email
+      }))
+    })
   }
 
   fetchAccountInfo = () => {

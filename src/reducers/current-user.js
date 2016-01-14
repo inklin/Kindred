@@ -60,20 +60,6 @@ function setDigestSettings(state, action) {
   })
 }
 
-function addNewContact(state, action) {
-  return Immutable.Map({
-    contactEmail: action.contactEmail,
-    firstName: action.firstName,
-    lastName: action.lastName,
-    email: action.email,
-    digestSchedule: action.digestSchedule,
-    digestView: action.digestView,
-    userName: action.userName,
-    avatarUrl: action.avatarUrl,
-    loading: false
-  })
-}
-
 
 export default function currentUserReducer(state = defaultState, action){
   switch (action.type){
@@ -91,9 +77,6 @@ export default function currentUserReducer(state = defaultState, action){
 
     case AccountConstants.SET_DIGEST_SETTINGS:
       return setDigestSettings(state, action)
-
-    case AccountConstants.ADD_NEW_CONTACT:
-      return addNewContact(state, action)
 
     default:
       return state
