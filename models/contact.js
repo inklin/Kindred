@@ -18,14 +18,8 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        Contact.belongsTo(models.Account, {
-          as: 'Sender',
-          foreignKey: 'AccountId'
-        });
-        Contact.belongsTo(models.Person, {
-          as: 'Recipient',
-          foreignKey: 'PersonId'
-        });
+        Contact.belongsTo(models.Account);
+        Contact.belongsTo(models.Person);
       }
     }
   });

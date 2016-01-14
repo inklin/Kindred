@@ -3,8 +3,7 @@ import DigestCard from './digest-card'
 
 import { connect } from 'react-redux'
 import { pushPath } from 'redux-simple-router'
-import { saveImageUrl, loadStart, loadError, loadSuccess, addUpdate } from '../actions/my-update.js'
-import { addSection } from '../actions/section.js'
+import { saveImageUrl } from '../actions/my-update.js'
 
 class UpdateList extends React.Component {
 
@@ -17,59 +16,6 @@ class UpdateList extends React.Component {
       })
     }
   }
-
-  parseSections = (sections) => {
-    sections.forEach( (section) => {
-      let comments = section.Comments.map( (comment) => {
-        return comment.id
-      })
-
-      this.props.dispatch(addSection({
-        id: section.id,
-        title: section.title,
-        intro: section.intro,
-        body: section.body,
-        imageUrl: section.imageUrl,
-        comments: comments,
-        AccountId: section.AccountId
-      }))
-    })
-  }
-
-  parseUpdates = (updates) => {
-    updates.forEach( (update) => {
-      this.parseSections(update.Sections)
-      let sections = update.Sections.map( (section) => {
-        return section.id
-      })
-      this.props.dispatch(addUpdate({
-        id: update.id,
-        draft: update.draft,
-        sections: sections,
-        AccountId: update.AccountId
-      }))
-    })
-  }
-
-  fetchAllUpdates = () => {
-    let ajax = new XMLHttpRequest()
-    ajax.open('GET', '/api/updates')
-    ajax.onreadystatechange = () => {
-      if ( ajax.readyState != XMLHttpRequest.DONE ) {
-        return
-      }
-      if ( ajax.status !== 200 ) {
-        this.props.dispatch(loadError())
-      }
-      let payload = JSON.parse(ajax.response)
-
-      this.parseUpdates(payload.updates)
-      this.props.dispatch(loadSuccess())
-    }
-    ajax.send()
-    this.props.dispatch(loadStart())
-  }
-
 
   readFullUpdate = (id) => {
     this.props.dispatch(pushPath(`/updates/${id}`))

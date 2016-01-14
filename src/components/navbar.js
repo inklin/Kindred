@@ -1,10 +1,51 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { pushPath } from 'redux-simple-router'
-import { Layout, Header, Textfield, Drawer, Navigation, Grid } from 'react-mdl'
+import { Layout, Drawer, Navigation, Grid } from 'react-mdl'
 import { loadStart, loadSuccess, loadError } from '../actions/account'
+import { addDigest, loadStart as digestLoadStart, loadSuccess as digestLoadSuccess, loadError as digestLoadError } from '../actions/digest'
+import { addSection } from '../actions/section'
+import { addUpdate } from '../actions/update'
+import { addUpdate as addMyUpdate, loadStart as updateLoadStart, loadSuccess as updateLoadSuccess, loadError as updateLoadError } from '../actions/my-update'
+import { addContact, loadStart as contactLoadStart, loadSuccess as contactLoadSuccess, loadError as contactLoadError } from '../actions/contact'
+
 
 class Navbar extends React.Component {
+
+  componentDidMount = () => {
+    this.fetchAccountInfo()
+    this.fetchAllDigests()
+    this.fetchAllUpdates()
+    this.fetchAllContacts()
+  }
+
+  fetchAllContacts = () => {
+    let ajax = new XMLHttpRequest()
+    ajax.open('GET', '/api/contacts')
+    ajax.onreadystatechange = () => {
+      if ( ajax.readyState != XMLHttpRequest.DONE ) {
+        return
+      }
+      if ( ajax.status !== 200 ) {
+        this.props.dispatch(contactLoadError())
+      }
+      let payload = JSON.parse(ajax.response)
+      
+      this.parseContacts(payload.contacts)
+      this.props.dispatch(contactLoadSuccess())
+    }
+    ajax.send()
+    this.props.dispatch(contactLoadStart())
+  }
+
+  parseContacts = (contacts) => {
+    contacts.forEach( (contact) => {
+      this.props.dispatch(addContact({
+        id: contact.id,
+        email: contact.Person.email
+      }))
+    })
+  }
 
   fetchAccountInfo = () => {
     let ajax = new XMLHttpRequest()
@@ -23,8 +64,117 @@ class Navbar extends React.Component {
     this.props.dispatch(loadStart())
   }
 
-  componentDidMount = () => {
-    this.fetchAccountInfo()
+   parseSections = (sections) => {
+    sections.forEach( (section) => {
+
+      this.props.dispatch(addSection({
+        id: section.id,
+        title: section.title,
+        intro: section.intro,
+        body: section.body,
+        imageUrl: section.imageUrl,
+        AccountId: section.AccountId
+      }))
+    })
+  }
+
+  parseUpdates = (updates) => {
+    updates.forEach( (update) => {
+      this.parseSections(update.Sections)
+      let sections = update.Sections.map( (section) => {
+        return section.id
+      })
+      this.props.dispatch(addUpdate({
+        id: update.id,
+        draft: update.draft,
+        sections: sections,
+        AccountId: update.AccountId
+      }))
+    })
+  }
+
+  parseDigests = (digests) => {
+    digests.forEach( (digest) => {
+      this.parseUpdates(digest.Updates)
+      let updates = digest.Updates.map( (update) => {
+        return update.id
+      })
+      this.props.dispatch(addDigest({
+        id: digest.id,
+        readAt: digest.readAt,
+        sentAt: digest.sentAt,
+        updates: updates,
+        PersonId: digest.PersonId
+      }))
+    })
+  }
+
+  fetchAllDigests = () => {
+    let ajax = new XMLHttpRequest()
+    ajax.open('GET', '/api/digests')
+    ajax.onreadystatechange = () => {
+      if ( ajax.readyState != XMLHttpRequest.DONE ) {
+        return
+      }
+      if ( ajax.status !== 200 ) {
+        this.props.dispatch(digestLoadError())
+      }
+      let payload = JSON.parse(ajax.response).data
+      
+      this.parseDigests(payload)
+      this.props.dispatch(digestLoadSuccess())
+    }
+    ajax.send()
+    this.props.dispatch(digestLoadStart())
+  }
+  
+  parseUpdates = (updates) => {
+    updates.forEach( (update) => {
+      this.parseSections(update.Sections)
+      let sections = update.Sections.map( (section) => {
+        return section.id
+      })
+      this.props.dispatch(addUpdate({
+        id: update.id,
+        draft: update.draft,
+        sections: sections,
+        AccountId: update.AccountId
+      }))
+    })
+  }
+
+  fetchAllUpdates = () => {
+    let ajax = new XMLHttpRequest()
+    ajax.open('GET', '/api/updates')
+    ajax.onreadystatechange = () => {
+      if ( ajax.readyState != XMLHttpRequest.DONE ) {
+        return
+      }
+      if ( ajax.status !== 200 ) {
+        this.props.dispatch(updateLoadError())
+      }
+      let payload = JSON.parse(ajax.response)
+      
+      this.parseMyUpdates(payload.updates)
+      this.props.dispatch(updateLoadSuccess())
+    }
+    ajax.send()
+    this.props.dispatch(updateLoadStart())
+  }
+
+  parseMyUpdates = (updates) => {
+    updates.forEach( (update) => {
+      this.parseSections(update.Sections)
+      let sections = update.Sections.map( (section) => {
+        return section.id
+      })
+      this.props.dispatch(addMyUpdate({
+        id: update.id,
+        draft: update.draft,
+        sections: sections,
+        AccountId: update.AccountId
+      }))
+    })
   }
 
   render() {

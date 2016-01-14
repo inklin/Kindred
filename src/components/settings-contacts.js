@@ -1,7 +1,9 @@
 import React from 'react'
+
 import Contact from './contact'
+
 import { connect } from 'react-redux'
-import { loadError, loadSuccess, addNewContact } from '../actions/account'
+import { loadError, loadSuccess, addContact, deleteContact as deleteContactAction } from '../actions/contact'
 
 class SettingsContacts extends React.Component {
   handleSubmit = (e) => {
@@ -13,18 +15,8 @@ class SettingsContacts extends React.Component {
 
   sendFormData = () => {
     var formData = {
-      digestSchedule: this.props.currentUser.get('digestSchedule'),
-      digestView: this.props.currentUser.get('digestView'),
-      firstName: this.props.currentUser.get('firstName'),
-      lastName: this.props.currentUser.get('lastName'),
-      email: this.props.currentUser.get('email'),
-      username: this.props.currentUser.get('userName'),
-      avatarUrl: this.props.currentUser.get('avatarUrl'),
-      // contacts: this.props.currentUser.get('contacts'),
       contactEmail: this.refs.contactEmail.value
     };
-
-    this.props.dispatch(addNewContact(formData));
 
     var requestBuildQueryString = (params) => {
       var queryString = [];
@@ -35,13 +27,18 @@ class SettingsContacts extends React.Component {
       return queryString.join('&');
     }
 
-    var xmlhttp = new XMLHttpRequest();
 
+    var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = () => {
       if (xmlhttp.readyState === 4) {
-        var response = JSON.parse(xmlhttp.responseText);
-        if (xmlhttp.status === 200 && response.status === 'OK') {
-          this.props.dispatch(loadSuccess(response.data))
+        if (xmlhttp.status === 200) {
+          let payload = JSON.parse(xmlhttp.response)
+
+          this.props.dispatch(loadSuccess())
+          this.props.dispatch(addContact({
+            id: payload.contact.id,
+            email: formData.contactEmail
+          }))
         }
         else {
           this.props.dispatch(loadError())
@@ -56,12 +53,12 @@ class SettingsContacts extends React.Component {
 
   deleteContact = (id) => {
     var xmlhttp = new XMLHttpRequest();
-
     xmlhttp.onreadystatechange = () => {
       if (xmlhttp.readyState === 4) {
-        var response = JSON.parse(xmlhttp.responseText);
-        if (xmlhttp.status === 200 && response.status === 'OK') {
-          // TODO add dispatch action
+        if (xmlhttp.status === 200 ) {
+          this.props.dispatch(deleteContactAction({
+            id: id
+          }))
         }
         else {
           this.props.dispatch(loadError())
@@ -70,24 +67,18 @@ class SettingsContacts extends React.Component {
     };
 
     xmlhttp.open('DELETE', `api/contacts/${id}`, true);
-    // xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xmlhttp.send();
   }
 
   render() {
-  // TODO replace contacts variable with real data
-    let contacts = ["test@example.com", "someonelse@example.com", "anotherperson@example.com"];
-    let counter = 0; // TODO remove me
-  // If a new contact has been added, add that contact to the table
-    if (this.props.currentUser.get('contactEmail') !== undefined) { contacts.push(this.props.currentUser.get('contactEmail')) }
+    let contacts = []
 
-    let contactRows = contacts.map ( (contact, counter) => {
-      counter += 1 // TODO remove me
-      return (
+    this.props.contacts.forEach ( (contact) => {
+      contacts.push(
         <Contact
-          id={counter} // TODO {contact.get('id')}
-          key={counter} // TODO {contact.get('id')}
-          email={contact}
+          id={contact.get('id')}
+          key={contact.get('id')}
+          email={contact.get('email')}
           deleteContact={this.deleteContact}
         />
       )
@@ -123,7 +114,7 @@ class SettingsContacts extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {contactRows}
+              {contacts}
             </tbody>
           </table>
         </div>
@@ -135,7 +126,8 @@ class SettingsContacts extends React.Component {
 
 function mapState (state) {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    contacts: state.contacts
   }
 }
 
