@@ -3,7 +3,8 @@ import React from 'react'
 export default class Editor extends React.Component {
 
   saveUpdate = () => {
-
+    // ****TODO**** need to save all the sections ? (intro, UpdateId, body etc)
+    // Nothing needs to be changed about the Update itself
   }
 
   deleteUpdate = (id) => {
@@ -19,6 +20,7 @@ export default class Editor extends React.Component {
     }
 
     ajax.send()
+    // *****TODO**** redirect to main page after update deletion?
   }
 
   publishUpdate = (id) => {
@@ -36,6 +38,10 @@ export default class Editor extends React.Component {
     ajax.send({
       updateId: id
     })
+
+    // *****TODO***** Also need to create Digest-Updates (there is a route but I don't know how to do both publish and create digest-updates)
+    // POST /api/digestupdates
+    // takes an update object in the request (request.update)
   }
 
   render() {
