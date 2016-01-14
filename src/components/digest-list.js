@@ -36,19 +36,18 @@ class DigestList extends React.Component {
       imageUrl = randSection.get('imageUrl')
 
       this.props.dispatch( saveImageUrl(digest.get('id'), imageUrl))
-    } else { 
+    } else {
       imageUrl = digest.get('imageUrl')
     }
     return imageUrl
   }
 
-
   render() {
     let digests = []
 
-    this.props.digests.forEach ( (digest) => {      
+    this.props.digests.forEach ( (digest) => {
 
-      digests.push(<DigestCard 
+      digests.push(<DigestCard
         id={digest.get('id')}
         key={digest.get('id')}
         imageUrl={digest.get('imageUrl')}
@@ -57,9 +56,9 @@ class DigestList extends React.Component {
       />)
     })
     return (
-     <div className='mdl-grid'>
+     <span className="full-width">
       {digests}
-     </div>
+     </span>
     )
   }
 }

@@ -18,12 +18,12 @@ class DigestContainer extends React.Component {
     })
 
     return (
-      <div className="mdl-grid">
+      <span className="full-width">
         <Digest
           id={currentDigest.get('id')}
           sections={currentSections}
         />
-      </div>
+      </span>
     )
   }
 }

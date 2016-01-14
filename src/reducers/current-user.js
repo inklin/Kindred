@@ -7,6 +7,8 @@ const defaultState = Immutable.Map({
     firstName: null,
     lastName: null,
     userName: null,
+    digestSchedule: null,
+    digestView: null,
     loading: false
 })
 
@@ -25,9 +27,53 @@ function loadSuccess(state, action){
     firstName: action.firstName,
     lastName: action.lastName,
     userName: action.userName,
+    digestSchedule: action.digestSchedule,
+    digestView: action.digestView,
     loading: false
   })
 }
+
+function setPersonalInfo(state, action) {
+  // update state to info user provided
+  return Immutable.Map({
+    avatarUrl: action.avatarUrl,
+    email: action.email,
+    firstName: action.firstName,
+    lastName: action.lastName,
+    userName: action.userName,
+    digestSchedule: action.digestSchedule,
+    digestView: action.digestView,
+    loading: false
+  })
+}
+
+function setDigestSettings(state, action) {
+  return Immutable.Map({
+    digestSchedule: action.digestSchedule,
+    digestView: action.digestView,
+    firstName: action.firstName,
+    lastName: action.lastName,
+    email: action.email,
+    userName: action.userName,
+    avatarUrl: action.avatarUrl,
+    loading: false
+  })
+}
+
+function addNewContact(state, action) {
+  return Immutable.Map({
+    contactEmail: action.contactEmail,
+    firstName: action.firstName,
+    lastName: action.lastName,
+    email: action.email,
+    digestSchedule: action.digestSchedule,
+    digestView: action.digestView,
+    userName: action.userName,
+    avatarUrl: action.avatarUrl,
+    loading: false
+  })
+}
+
 
 export default function currentUserReducer(state = defaultState, action){
   switch (action.type){
@@ -39,6 +85,15 @@ export default function currentUserReducer(state = defaultState, action){
 
     case AccountConstants.LOAD_ERROR:
       return loadError(state, action)
+
+    case AccountConstants.SET_PERSONAL_INFO:
+      return setPersonalInfo(state, action)
+
+    case AccountConstants.SET_DIGEST_SETTINGS:
+      return setDigestSettings(state, action)
+
+    case AccountConstants.ADD_NEW_CONTACT:
+      return addNewContact(state, action)
 
     default:
       return state

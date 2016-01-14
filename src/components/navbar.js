@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { pushPath } from 'redux-simple-router'
-import { Layout, Header, Textfield, Drawer, Navigation } from 'react-mdl'
+import { Layout, Drawer, Navigation, Grid } from 'react-mdl'
 import { loadStart, loadSuccess, loadError } from '../actions/account'
 import { addDigest, loadStart as digestLoadStart, loadSuccess as digestLoadSuccess, loadError as digestLoadError } from '../actions/digest'
 import { addSection } from '../actions/section'
@@ -148,35 +148,43 @@ class Navbar extends React.Component {
   }
 
   render() {
+    var navAvatar = {
+      background: `url('${this.props.currentUser.get('avatarUrl')}') center / cover no-repeat`
+    };
+
+    var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    var dayNum = this.props.currentUser.get('digestSchedule');
+    var dayOfWeek = days[dayNum - 1];
+    var view = (this.props.currentUser.get('digestView') === "snippet") ? "Summary" : "Full";
+
     if (this.props.currentUser.get('loading')) {
       return <h1>Loading...</h1>
     }
 
     return (
-      <Layout fixedHeader fixedDrawer >
-    
-        <Drawer title='Kindred'>
-          <img src={this.props.currentUser.get('avatarUrl')} height="240px" />
-          <p>{`${this.props.currentUser.get('firstName')} ${this.props.currentUser.get('lastName')}`}</p>
+      <Layout fixedDrawer >
+
+        <Drawer title='kindred' className="navbar-bground">
+          <div className="navbar-avatar" style={navAvatar}></div>
+          <p className="navbar-username">Welcome back {`${this.props.currentUser.get('firstName')}`}</p>
+
           <Navigation>
-            <a onClick={()=>{this.props.dispatch(pushPath('/'))} }>Dashboard</a>
-            <a onClick={()=>{this.props.dispatch(pushPath('/editor'))} }>Editor</a>
-            <a onClick={()=>{this.props.dispatch(pushPath('/updates'))} }>My Updates</a>
+            <a onClick={()=>{this.props.dispatch(pushPath('/editor'))} }>Create New Update</a>
+            <a onClick={()=>{this.props.dispatch(pushPath('/updates'))} }>View Your Updates</a>
+            <a onClick={()=>{this.props.dispatch(pushPath('/'))} }>View Digests</a>
+            <span className="navbar-link-group-spacer"></span>
+            <p className="">Your Digest Schedule:<br/><span className="navBar-info">{`${dayOfWeek}'s @ 5:00am`}</span></p>
+            <p className="">Your Email Digest View:<br /><span className="navBar-info">{`${view}`}</span></p>
+            <span className="navbar-link-group-spacer"></span>
+            <a onClick={()=>{this.props.dispatch(pushPath('/settings'))} }>Edit Your Settings</a>
+            <a onClick={()=>{this.props.dispatch(pushPath('/settings'))} }>Sign Out</a>
           </Navigation>
         </Drawer>
 
-        <Header title='Kindred'>
-          <Textfield
-            label='Search'
-            expandable
-            expandableIcon='search'
-          />
-        </Header>
-
         <main className="mdl-layout__content">
-          <div className="page-content">
-            {this.props.children}
-          </div>
+          <Grid>
+              {this.props.children}
+          </Grid>
         </main>
       </Layout>
     )

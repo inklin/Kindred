@@ -5,7 +5,7 @@ class Update extends React.Component {
 
   render() {
     let sections = []
-    
+
     this.props.sections.forEach( (sectionId) =>{
       sections.push(
       <SectionContainer
@@ -15,9 +15,9 @@ class Update extends React.Component {
     })
 
     return (
-      <div className="mdl-grid">
+      <span>
         {sections}
-      </div>
+      </span>
     )
   }
 }

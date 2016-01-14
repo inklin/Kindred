@@ -34,7 +34,7 @@ class UpdateList extends React.Component {
       imageUrl = randSection.get('imageUrl')
 
       this.props.dispatch( saveImageUrl(update.get('id'), imageUrl))
-    } else { 
+    } else {
       imageUrl = update.get('imageUrl')
     }
     return imageUrl
@@ -55,9 +55,9 @@ class UpdateList extends React.Component {
     })
 
     return (
-      <div className="mdl-grid">
+      <span className="full-width">
         { updates }
-      </div>
+      </span>
     )
   }
 }
