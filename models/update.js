@@ -8,6 +8,12 @@ module.exports = function(sequelize, DataTypes) {
         isInt: true
       }
     },
+    sentAt: {
+      type: DataTypes.DATE,
+      validate: {
+        isDate: true
+      }
+    },
     draft: {
       type: DataTypes.BOOLEAN,
       allowNull: false,

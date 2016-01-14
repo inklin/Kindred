@@ -22,8 +22,17 @@ function addSection(state, action){
   }))
 }
 
+function updateSection(state, action){
+    return state.update(action.id, (section) => {
+      return section.set(action.field, action.value)
+    })
+}
+
 export default function sectionReducer(state = defaultState, action){
   switch (action.type){
+
+    case SectionConstants.UPDATE_SECTION:
+      return updateSection(state, action)
 
     case SectionConstants.TOGGLE_VIEW:
       return toggleView(state, action)

@@ -29,14 +29,8 @@ const reducer = combineReducers ({
   contacts: contactReducer
 })
 
-
 const store = createStore(reducer)
 const history = createHistory()
-
-let unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-)
-
 
 syncReduxAndRouter(history, store)
 

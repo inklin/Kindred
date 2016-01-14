@@ -32,6 +32,7 @@ export function addUpdate(update){
     draft: update.draft,
     sections: update.sections,
     AccountId: update.AccountId,
+    sentAt: update.sentAt,
     type: UpdateConstants.ADD_UPDATE
   }
 }

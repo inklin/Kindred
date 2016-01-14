@@ -1,9 +1,9 @@
 import { SectionConstants } from '../constants/index'
 
 export function readFull(id) {
-  return { 
+  return {
     type: SectionConstants.TOGGLE_VIEW,
-    id: id 
+    id: id
   }
 }
 
@@ -17,5 +17,14 @@ export function addSection(section){
     comments: section.comments,
     AccountId: section.AccountId,
     type: SectionConstants.ADD_SECTION
+  }
+}
+
+export function updateSection(id, field, value){
+  return {
+    id,
+    field,
+    value,
+    type: SectionConstants.UPDATE_SECTION
   }
 }

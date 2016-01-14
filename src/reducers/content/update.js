@@ -15,7 +15,8 @@ function addUpdate(state, action){
     id: action.id,
     draft: action.draft,
     sections: action.sections,
-    AccountId: action.AccountId  
+    AccountId: action.AccountId,
+    sentAt: action.sentAt
   }))
 }
 
