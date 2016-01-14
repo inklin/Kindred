@@ -42,7 +42,7 @@ class Navbar extends React.Component {
     contacts.forEach( (contact) => {
       this.props.dispatch(addContact({
         id: contact.id,
-        email: contact.email
+        email: contact.Person.email
       }))
     })
   }

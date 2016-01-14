@@ -22,7 +22,6 @@ class SettingsContacts extends React.Component {
       email: this.props.currentUser.get('email'),
       username: this.props.currentUser.get('userName'),
       avatarUrl: this.props.currentUser.get('avatarUrl'),
-      // contacts: this.props.currentUser.get('contacts'),
       contactEmail: this.refs.contactEmail.value
     };
 
@@ -78,18 +77,14 @@ class SettingsContacts extends React.Component {
 
   render() {
   // TODO replace contacts variable with real data
-    let contacts = ["test@example.com", "someonelse@example.com", "anotherperson@example.com"];
-    let counter = 0; // TODO remove me
+    let contacts = []
   // If a new contact has been added, add that contact to the table
-    if (this.props.currentUser.get('contactEmail') !== undefined) { contacts.push(this.props.currentUser.get('contactEmail')) }
-
-    let contactRows = contacts.map ( (contact, counter) => {
-      counter += 1 // TODO remove me
-      return (
+    this.props.contacts.forEach ( (contact) => {
+      contacts.push(
         <Contact
-          id={counter} // TODO {contact.get('id')}
-          key={counter} // TODO {contact.get('id')}
-          email={contact}
+          id={contact.get('id')} // TODO {contact.get('id')}
+          key={contact.get('id')} // TODO {contact.get('id')}
+          email={contact.get('email')}
           deleteContact={this.deleteContact}
         />
       )
@@ -125,7 +120,7 @@ class SettingsContacts extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {contactRows}
+              {contacts}
             </tbody>
           </table>
         </div>
@@ -137,7 +132,8 @@ class SettingsContacts extends React.Component {
 
 function mapState (state) {
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    contacts: state.contacts
   }
 }
 
