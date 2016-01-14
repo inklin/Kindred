@@ -14,15 +14,43 @@ export default class EditorSection extends React.Component {
     this.props.changeSection(this.props.id, 'body', e.target.value)
   }
 
+  handleImageUrl = (e) => {
+    this.props.changeSection(this.props.id, 'imageUrl', e.target.value)
+  }
+
   saveSection = () => {
-    var section = {
+    var formData = {
       id: this.props.id,
       title: this.props.title,
       intro: this.props.intro,
-      body: this.props.body
+      body: this.props.body,
+      imageUrl: this.props.imageUrl
     }
 
-    console.log('Section: ', section);
+    var requestBuildQueryString = (params) => {
+      var queryString = [];
+      for(var property in params)
+        if (params.hasOwnProperty(property)) {
+          queryString.push(encodeURIComponent(property) + '=' + encodeURIComponent(params[property]));
+        }
+      return queryString.join('&');
+    }
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = () => {
+      if (xmlhttp.readyState === 4) {
+        var response = JSON.parse(xmlhttp.responseText);
+        if (xmlhttp.status === 200 && response.status === 'OK') {
+        }
+        else {
+        }
+      }
+    };
+
+    xmlhttp.open('PUT', 'api/sections/' + this.props.id, true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send(requestBuildQueryString(formData));
   }
 
   render() {
@@ -34,7 +62,7 @@ export default class EditorSection extends React.Component {
             </div>
           </div>
           <div className="editor-section-image-button-box">
-            <button className="mdl-button mdl-js-button mdl-button--raised editor-image-button" style={{ width: `300` }}>Choose An Image</button>
+            <input type="text" className="editor-section-title" placeholder="Enter image url" onChange={this.handleImageUrl} value={this.props.imageUrl}></input>
           </div>
         </div>
 

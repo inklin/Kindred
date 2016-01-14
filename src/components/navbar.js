@@ -30,7 +30,7 @@ class Navbar extends React.Component {
         this.props.dispatch(contactLoadError())
       }
       let payload = JSON.parse(ajax.response)
-      
+
       this.parseContacts(payload.contacts)
       this.props.dispatch(contactLoadSuccess())
     }
@@ -120,14 +120,14 @@ class Navbar extends React.Component {
         this.props.dispatch(digestLoadError())
       }
       let payload = JSON.parse(ajax.response).data
-      
+
       this.parseDigests(payload)
       this.props.dispatch(digestLoadSuccess())
     }
     ajax.send()
     this.props.dispatch(digestLoadStart())
   }
-  
+
   parseUpdates = (updates) => {
     updates.forEach( (update) => {
       this.parseSections(update.Sections)
@@ -154,7 +154,7 @@ class Navbar extends React.Component {
         this.props.dispatch(updateLoadError())
       }
       let payload = JSON.parse(ajax.response)
-      
+
       this.parseMyUpdates(payload.updates)
       this.props.dispatch(updateLoadSuccess())
     }
@@ -178,6 +178,10 @@ class Navbar extends React.Component {
   }
 
   render() {
+    var hasDraft = this.props.updates.find(
+      (update) => { return update.get('draft') }
+    )
+
     var navAvatar = {
       background: `url('${this.props.currentUser.get('avatarUrl')}') center / cover no-repeat`
     };
@@ -199,7 +203,7 @@ class Navbar extends React.Component {
           <p className="navbar-username">Welcome back {`${this.props.currentUser.get('firstName')}`}</p>
 
           <Navigation>
-            <a onClick={()=>{this.props.dispatch(pushPath('/editor'))} }>Create New Update</a>
+            <a onClick={()=>{this.props.dispatch(pushPath('/editor'))} }>{ hasDraft ? 'Edit Current Draft' : 'Create New Update'}</a>
             <a onClick={()=>{this.props.dispatch(pushPath('/updates'))} }>View Your Updates</a>
             <a onClick={()=>{this.props.dispatch(pushPath('/'))} }>View Digests</a>
             <span className="navbar-link-group-spacer"></span>
@@ -223,6 +227,7 @@ class Navbar extends React.Component {
 
 function mapState (state) {
   return {
+    updates: state.content.myUpdates,
     currentUser: state.currentUser,
     loading: state.content.loading
   }

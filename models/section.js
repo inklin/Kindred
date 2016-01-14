@@ -9,28 +9,28 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true
-        // TODO add length
-      }
+      type: DataTypes.STRING
+      // allowNull: false,
+      // validate: {
+      //   notEmpty: true
+      //   // TODO add length
+      // }
     },
     intro: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        notEmpty: true
-        // TODO add length
-      }
+      type: DataTypes.TEXT
+      // allowNull: false,
+      // validate: {
+      //   notEmpty: true
+      //   // TODO add length
+      // }
     },
     body: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        notEmpty: true
-        // TODO add length
-      }
+      type: DataTypes.TEXT
+      // allowNull: false,
+      // validate: {
+      //   notEmpty: true
+      //   // TODO add length
+      // }
     },
     imageUrl: {
       type: DataTypes.STRING,
