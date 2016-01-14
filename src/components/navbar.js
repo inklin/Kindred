@@ -32,6 +32,11 @@ class Navbar extends React.Component {
       background: `url('${this.props.currentUser.get('avatarUrl')}') center / cover no-repeat`
     };
 
+    var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    var dayNum = this.props.currentUser.get('digestSchedule');
+    var dayOfWeek = days[dayNum - 1];
+    var view = (this.props.currentUser.get('digestView') === "snippet") ? "Summary" : "Full";
+
     if (this.props.currentUser.get('loading')) {
       return <h1>Loading...</h1>
     }
@@ -44,13 +49,18 @@ class Navbar extends React.Component {
           <p className="navbar-username">Welcome back {`${this.props.currentUser.get('firstName')}`}</p>
 
           <Navigation>
-            <a onClick={()=>{this.props.dispatch(pushPath('/'))} }>Dashboard</a>
-            <a onClick={()=>{this.props.dispatch(pushPath('/editor'))} }>Editor</a>
-            <a onClick={()=>{this.props.dispatch(pushPath('/updates'))} }>My Updates</a>
-            <a onClick={()=>{this.props.dispatch(pushPath('/settings'))} }>Settings</a>
+            <a onClick={()=>{this.props.dispatch(pushPath('/editor'))} }>Create New Update</a>
+            <a onClick={()=>{this.props.dispatch(pushPath('/updates'))} }>View Your Updates</a>
+            <a onClick={()=>{this.props.dispatch(pushPath('/'))} }>View Digests</a>
+            <span className="navbar-link-group-spacer"></span>
+            <p className="">Your Digest Schedule:<br/><span className="navBar-info">{`${dayOfWeek}'s @ 5:00am`}</span></p>
+            <p className="">Your Email Digest View:<br /><span className="navBar-info">{`${view}`}</span></p>
+            <span className="navbar-link-group-spacer"></span>
+            <a onClick={()=>{this.props.dispatch(pushPath('/settings'))} }>Edit Your Settings</a>
+            <a onClick={()=>{this.props.dispatch(pushPath('/settings'))} }>Sign Out</a>
           </Navigation>
         </Drawer>
-        
+
         <main className="mdl-layout__content">
           <Grid>
               {this.props.children}
