@@ -25,3 +25,10 @@ export function addContact(data) {
     email: data.email
   }
 }
+
+export function deleteContact(data) {
+  return {
+    type: ContactConstants.DELETE_CONTACT,
+    id: data.id
+  }
+}

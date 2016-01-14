@@ -12,11 +12,18 @@ function addNewContact(state, action) {
   )
 }
 
+function deleteContact(state, action){
+  return state.delete(action.id)
+}
+
 export default function contactReducer(state = defaultState, action){
   switch (action.type){
 
     case ContactConstants.ADD_NEW_CONTACT:
       return addNewContact(state, action)
+
+    case ContactConstants.DELETE_CONTACT:
+      return deleteContact(state, action)
 
     default:
       return state
